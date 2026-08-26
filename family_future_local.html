@@ -1488,13 +1488,13 @@
             }
         }
 
-        /* Value Stack Box (for 120k Hero Card - per user request image #3) */
+        /* Value Stack Box (pure white background for bento consistency) */
         .value-stack-box {
-            background: #FDFCF8;
+            background: #FFFFFF;
             border: 1px solid var(--border);
             border-radius: 0.85rem;
             padding: 0.9rem 0.85rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             display: flex;
             flex-direction: column;
             gap: 0.55rem;
@@ -1510,9 +1510,9 @@
             line-height: 1.35;
         }
         .value-pill-badge {
-            background: #FFF3E0;
-            color: #E65100;
-            border: 1px solid #FFE0B2;
+            background: #E8F0EE;
+            color: var(--teal);
+            border: 1px solid rgba(26, 60, 52, 0.15);
             font-family: var(--sans);
             font-weight: 600;
             font-size: 0.68rem;
@@ -1544,13 +1544,13 @@
             text-decoration: line-through;
         }
 
-        /* "Paling Laris" badge — on hero-card */
+        /* "Paling Laris" badge — green theme */
         .badge-hero {
             position: absolute;
             top: -13px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--crimson);
+            background: var(--teal);
             color: #FFFFFF;
             font-family: var(--sans);
             font-size: 0.7rem;
@@ -1560,12 +1560,12 @@
             padding: 4px 14px;
             border-radius: 100px;
             white-space: nowrap;
-            /* Subtle pulse — delight budget: rare/first-time element */
+            /* Subtle pulse */
             animation: badgePulse 2.8s var(--ease-out-strong) infinite;
         }
         @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 45, 0.35); }
-            50%       { box-shadow: 0 0 0 6px rgba(139, 26, 45, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(26, 60, 52, 0.35); }
+            50%       { box-shadow: 0 0 0 6px rgba(26, 60, 52, 0); }
         }
         @media (prefers-reduced-motion: reduce) {
             .badge-hero { animation: none; }
@@ -1594,10 +1594,11 @@
         }
         .price-num {
             font-family: var(--serif);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 500;
             color: var(--ink);
-            margin-bottom: 1.25rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
@@ -1653,18 +1654,19 @@
         }
         .btn-primary:active { transform: scale(0.97); }
 
-        /* Gold / hero CTA override */
+        /* Hero / Best-value green button override */
         .btn-gold {
-            background: var(--crimson);
-            border-color: var(--crimson);
+            background: var(--teal);
+            border-color: var(--teal);
+            color: #FFFFFF;
             font-weight: 700;
             font-size: 0.95rem !important;
         }
         @media (hover: hover) and (pointer: fine) {
             .btn-gold:hover {
-                background: var(--crimsonL);
-                border-color: var(--crimsonL);
-                box-shadow: 0 8px 24px rgba(139, 26, 45, 0.28);
+                background: var(--tealL);
+                border-color: var(--tealL);
+                box-shadow: 0 8px 24px rgba(26, 60, 52, 0.28);
             }
         }
     </style>
@@ -2204,13 +2206,15 @@
                 <div>
                     <h3 class="price-title">Laporan Dasar</h3>
                     <p class="price-sub">Pemetaan Awal Gratis</p>
-                    <div class="price-num">Gratis</div>
                     <ul class="price-features">
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Ringkasan 3 Dimensi Bakat</li>
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses Kuis Instan</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20gratis" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem;">Coba Gratis</a>
+                <div>
+                    <div class="price-num">Gratis</div>
+                    <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20gratis" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem;">Coba Gratis</a>
+                </div>
             </div>
 
             <!-- 2. Advanced Report Tier Card -->
@@ -2218,14 +2222,16 @@
                 <div>
                     <h3 class="price-title">Advanced Report</h3>
                     <p class="price-sub">Laporan Lengkap 19 Faktor</p>
-                    <div class="price-num">Rp 80.000</div>
                     <ul class="price-features">
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Analisa 19 Faktor Lengkap</li>
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Peta Jurusan Kuliah Anti-Gagal</li>
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Proyeksi Gaji Tujuan Karir</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/628123456789?text=Saya%20mau%20ambil%20Advanced%20Report%2080rb" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem;">Pilih Advanced</a>
+                <div>
+                    <div class="price-num">Rp 80.000</div>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20ambil%20Advanced%20Report%2080rb" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem;">Pilih Advanced</a>
+                </div>
             </div>
 
             <!-- 3. AI Counselor Only (DECOY TIER CARD) -->
@@ -2233,13 +2239,15 @@
                 <div>
                     <h3 class="price-title">AI Counselor Only</h3>
                     <p class="price-sub">Akses AI Konsultan Saja</p>
-                    <div class="price-num">Rp 110.000</div>
                     <ul class="price-features">
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses AI Counselor 24/7</li>
                         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bebas Diskusi Kapan Pun</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/628123456789?text=Saya%20mau%20AI%20Counselor%20Only" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem; background:var(--inkSoft); border-color:var(--inkSoft);">Pilih AI Only</a>
+                <div>
+                    <div class="price-num">Rp 110.000</div>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20AI%20Counselor%20Only" class="btn-primary" style="width:100%; font-size:0.85rem; padding:0.75rem;">Pilih AI Only</a>
+                </div>
             </div>
 
             <!-- 4. Advanced + AI Bundle Card (HERO / BEST VALUE TIER) -->
@@ -2248,9 +2256,8 @@
                 <div>
                     <h3 class="price-title">Paket Lengkap + AI</h3>
                     <p class="price-sub">Laporan 19 Faktor + AI 24/7</p>
-                    <div class="price-num" style="margin-bottom:0.75rem;">Rp 120.000 <span style="font-size:0.8rem; font-weight:400; color:var(--crimson);">(Cuma +10rb!)</span></div>
                     
-                    <!-- Hormozi Value Stack Details (from user image #3) -->
+                    <!-- Hormozi Value Stack Details -->
                     <div class="value-stack-box">
                         <div class="value-stack-row">
                             <span>✓ Asesmen Bakat 19–Faktor &amp; Radar</span>
@@ -2282,7 +2289,10 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-primary btn-gold" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
+                <div>
+                    <div class="price-num" style="margin-bottom:0.75rem;">Rp 120.000 <span style="font-size:0.8rem; font-weight:400; color:var(--crimson);">(Cuma +10rb!)</span></div>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-primary btn-gold" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
+                </div>
             </div>
         </div>
 
