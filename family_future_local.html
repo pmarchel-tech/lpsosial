@@ -1457,7 +1457,7 @@
 
         /* Hero / Best-value card */
         .price-card.hero-card {
-            background: var(--cream2);
+            background: #FFFFFF;
             border: 1.5px solid var(--teal);
             box-shadow: 0 16px 40px rgba(26, 60, 52, 0.10);
         }
@@ -1471,14 +1471,14 @@
             }
         }
 
-        /* Decoy card — visually de-emphasised */
+        /* Decoy card — consistent white background */
         .price-card.decoy-card {
             opacity: 0;
-            background: var(--cream2);
-            color: var(--inkSoft);
+            background: #FFFFFF;
+            color: var(--ink);
         }
         .section.visible .price-card.decoy-card {
-            opacity: 0.82;
+            opacity: 1;
             transform: translateY(0) scale(1);
         }
         @media (hover: hover) and (pointer: fine) {
@@ -1486,6 +1486,62 @@
                 opacity: 1;
                 transform: translateY(-2px) scale(1);
             }
+        }
+
+        /* Value Stack Box (for 120k Hero Card - per user request image #3) */
+        .value-stack-box {
+            background: #FDFCF8;
+            border: 1px solid var(--border);
+            border-radius: 0.85rem;
+            padding: 0.9rem 0.85rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .value-stack-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.4rem;
+            font-family: var(--sans);
+            font-size: 0.76rem;
+            color: var(--inkMid);
+            line-height: 1.35;
+        }
+        .value-pill-badge {
+            background: #FFF3E0;
+            color: #E65100;
+            border: 1px solid #FFE0B2;
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .value-stack-divider {
+            border-top: 1px dashed var(--borderM);
+            padding-top: 0.55rem;
+            margin-top: 0.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-real-val {
+            color: var(--teal);
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+        }
+        .total-strike-val {
+            color: var(--crimson);
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: line-through;
         }
 
         /* "Paling Laris" badge — on hero-card */
@@ -2192,12 +2248,39 @@
                 <div>
                     <h3 class="price-title">Paket Lengkap + AI</h3>
                     <p class="price-sub">Laporan 19 Faktor + AI 24/7</p>
-                    <div class="price-num">Rp 120.000 <span style="font-size:0.8rem; font-weight:400; color:var(--crimson);">(Cuma +10rb!)</span></div>
-                    <ul class="price-features">
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Semua Fitur Advanced Report</strong></li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Akses Penuh AI Counselor 24/7</strong></li>
-                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Prioritas Konsultasi Psikolog</li>
-                    </ul>
+                    <div class="price-num" style="margin-bottom:0.75rem;">Rp 120.000 <span style="font-size:0.8rem; font-weight:400; color:var(--crimson);">(Cuma +10rb!)</span></div>
+                    
+                    <!-- Hormozi Value Stack Details (from user image #3) -->
+                    <div class="value-stack-box">
+                        <div class="value-stack-row">
+                            <span>✓ Asesmen Bakat 19–Faktor &amp; Radar</span>
+                            <span class="value-pill-badge">Nilai: Rp 350rb</span>
+                        </div>
+                        <div class="value-stack-row">
+                            <span>✓ Laporan PDF 19 Halaman Lengkap</span>
+                            <span class="value-pill-badge">Nilai: Rp 250rb</span>
+                        </div>
+                        <div class="value-stack-row">
+                            <span>✓ Draf Panduan Diplomasi Ortu-Anak</span>
+                            <span class="value-pill-badge">Nilai: Rp 200rb</span>
+                        </div>
+                        <div class="value-stack-row">
+                            <span>✓ Akses AI Counselor 24/7</span>
+                            <span class="value-pill-badge">Nilai: Rp 150rb</span>
+                        </div>
+                        <div class="value-stack-row">
+                            <span>✓ Voucher 1-on-1 Konsultasi Dr. Teguh</span>
+                            <span class="value-pill-badge">Nilai: Rp 100rb</span>
+                        </div>
+                        <div class="value-stack-row">
+                            <span>✓ Voucher English Placement Test</span>
+                            <span class="value-pill-badge">Nilai: Rp 50rb</span>
+                        </div>
+                        <div class="value-stack-divider">
+                            <span class="total-real-val">TOTAL REAL VALUE</span>
+                            <span class="total-strike-val">Rp 1.100.000</span>
+                        </div>
+                    </div>
                 </div>
                 <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-primary btn-gold" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
             </div>
