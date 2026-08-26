@@ -1839,7 +1839,7 @@
         <div class="lebaran-countdown-box">
             <div class="lebaran-label">
                 <span class="lebaran-label-dot"></span>
-                PROMO SPESIAL HARI RAYA LEBARAN — BERAKHIR DALAM:
+                HITUNG MUNDUR MENUJU HARI RAYA LEBARAN (10 MARET 2027):
             </div>
             <div class="timer-grid">
                 <div class="timer-unit">
@@ -2743,13 +2743,8 @@
         const sEl = document.getElementById("cd-secs");
         if (!dEl || !hEl || !mEl || !sEl) return;
 
-        // Target Date: Hari Raya Idul Fitri (Lebaran 2026 - March 20, 2026)
-        let now = new Date();
-        let target = new Date("March 20, 2026 00:00:00").getTime();
-        if (now.getTime() > target) {
-            // Fallback target: 14 days from now if target date passed
-            target = now.getTime() + (14 * 24 * 60 * 60 * 1000);
-        }
+        // Target Date: Hari Raya Idul Fitri 2027 (1 Syawal 1448 H - 10 Maret 2027)
+        let target = new Date("March 10, 2027 00:00:00").getTime();
 
         function updateTimer() {
             const current = new Date().getTime();
