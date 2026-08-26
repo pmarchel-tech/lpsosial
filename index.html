@@ -3,1270 +3,1863 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Better Future (ISCA) — Pendampingan Bakat Anak &amp; Anti Salah Jurusan</title>
-    <meta name="description" content="Pemetaan 19-Faktor Minat & Bakat Anak untuk Mencegah Rp 150 Jt Biaya Salah Jurusan & Risiko Drop Out.">
+    <title>Better Future — Petakan Bakat Anak, Cegah Salah Jurusan</title>
+    <meta name="description" content="Pemetaan 19-Faktor Minat & Bakat berbasis psikologi ilmiah. Cegah Rp 150 juta terbuang sia-sia akibat salah jurusan & risiko drop out.">
 
-    <!-- Fonts: Playfair Display + Plus Jakarta Sans -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ============================================================
-           DESIGN ENGINEERING SYSTEM — PRESTIGE IVORY & ROYAL EMERALD
+           DESIGN SYSTEM — DARK LUXURY EDITORIAL
            ============================================================ */
         :root {
-            --bg-warm: #fcfaf6;
-            --bg-card: #ffffff;
-            --bg-subtle: #f5f0e8;
+            --bg-deep:       #080c14;
+            --bg-card:       #0d1422;
+            --bg-raised:     #121929;
+            --bg-border:     rgba(255,255,255,0.06);
+            --bg-border-mid: rgba(255,255,255,0.10);
 
-            --emerald-deep: #064e3b;
-            --emerald-mid: #047857;
-            --emerald-light: #10b981;
-            --emerald-subtle: #e6f4ed;
+            --teal-vivid:    #00e5cc;
+            --teal-mid:      #00b8a6;
+            --teal-dim:      rgba(0,229,204,0.12);
+            --teal-glow:     rgba(0,229,204,0.18);
 
-            --gold-main: #d97706;
-            --gold-bright: #f59e0b;
-            --gold-subtle: #fffbeb;
+            --amber-bright:  #ffb830;
+            --amber-dim:     rgba(255,184,48,0.12);
+            --crimson:       #ff4468;
+            --crimson-dim:   rgba(255,68,104,0.12);
 
-            --crimson-pain: #be123c;
-            --crimson-subtle: #ffe4e6;
+            --text-white:    #f0f4ff;
+            --text-body:     #8b97b8;
+            --text-muted:    #556080;
 
-            --text-main: #1c2826;
-            --text-body: #475569;
-            --text-light: #64748b;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans:  'Inter', -apple-system, sans-serif;
 
-            --border-soft: #e8e2d8;
-            --border-emerald: rgba(6, 78, 59, 0.15);
-
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
-
-            /* Emil Kowalski Custom Easing Curves */
-            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-            --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
             --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-silk:   cubic-bezier(0.77, 0, 0.175, 1);
+
+            --radius-sm:  0.75rem;
+            --radius-md:  1.25rem;
+            --radius-lg:  2rem;
+            --radius-xl:  3rem;
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0; padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--bg-warm);
-            color: var(--text-main);
+            background: var(--bg-deep);
+            color: var(--text-white);
             font-family: var(--font-sans);
             font-size: 16px;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        body {
-            overflow-x: hidden;
-            background: var(--bg-warm);
-        }
+        body { overflow-x: hidden; }
 
-        /* Tactile Press State Rule (Emil Kowalski Principle) */
-        button, .btn, .interactive-card, .carousel-arrow, .faq-header, .prompt-chip, .trait-chip {
+        /* ---- Tactile Press (Emil Kowalski) ---- */
+        button, .btn, [role="button"], .ca-arrow, .faq-toggle, .price-card {
             touch-action: manipulation;
-            transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), border-color 160ms var(--ease-out);
+            transition: transform 150ms var(--ease-out), opacity 150ms var(--ease-out), box-shadow 200ms var(--ease-out);
         }
-        button:active, .btn:active, .interactive-card:active, .carousel-arrow:active, .faq-header:active, .prompt-chip:active, .trait-chip:active {
-            transform: scale(0.98) !important;
+        button:active, .btn:active, [role="button"]:active, .ca-arrow:active {
+            transform: scale(0.96) !important;
         }
 
         .container {
             width: 100%;
-            max-width: 1140px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        .section-padding {
-            padding: 5.5rem 0;
+        /* ============================================================
+           SCROLL REVEAL ANIMATION ENGINE
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
         }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* Typography */
-        .serif { font-family: var(--font-serif); }
-        .italic-crimson { font-family: var(--font-serif); font-style: italic; color: var(--crimson-pain); }
-        .italic-emerald { font-family: var(--font-serif); font-style: italic; color: var(--emerald-deep); }
-        .italic-gold { font-family: var(--font-serif); font-style: italic; color: var(--gold-main); }
-
-        .chapter-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--emerald-mid);
-            background: var(--emerald-subtle);
-            padding: 0.35rem 0.85rem;
-            border-radius: 100px;
-            margin-bottom: 1.25rem;
-        }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.3rem, 4.2vw, 3.5rem);
-            line-height: 1.15;
-            font-weight: 600;
-            color: var(--emerald-deep);
-            margin-bottom: 1.15rem;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.65rem;
-            background: linear-gradient(135deg, var(--gold-main) 0%, #b45309 100%);
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 1.05rem 2.2rem;
-            border-radius: 100px;
-            border: none;
-            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.28);
-            cursor: pointer;
-            text-decoration: none;
-        }
-        @media (hover: hover) and (pointer: fine) {
-            .btn-primary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 12px 30px rgba(217, 119, 6, 0.38);
-            }
-        }
-
-        .btn-emerald-solid {
-            background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald-mid) 100%);
-            box-shadow: 0 8px 24px rgba(6, 78, 59, 0.25);
-        }
-
-        /* Header Navigation */
+        /* ============================================================
+           NAVBAR
+           ============================================================ */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
-            z-index: 100;
-            background: rgba(252, 250, 246, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-soft);
+            z-index: 200;
             padding: 1rem 0;
+            transition: background 300ms var(--ease-out), border-color 300ms;
         }
-        .nav-content {
+        .navbar.scrolled {
+            background: rgba(8,12,20,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--bg-border);
+        }
+        .nav-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .brand-logo {
+        .brand {
             font-family: var(--font-serif);
-            font-size: 1.65rem;
+            font-size: 1.55rem;
+            color: var(--text-white);
+            letter-spacing: -0.01em;
+            text-decoration: none;
+        }
+        .brand em {
+            font-style: italic;
+            color: var(--teal-vivid);
+        }
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--teal-vivid);
+            color: #080c14;
             font-weight: 700;
-            color: var(--emerald-deep);
-            display: flex;
-            align-items: baseline;
+            font-size: 0.875rem;
+            padding: 0.6rem 1.4rem;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
         }
-        .brand-logo span {
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--gold-main);
-            letter-spacing: 0.12em;
-            margin-left: 0.3rem;
-            text-transform: uppercase;
+        @media(hover:hover){
+            .nav-cta:hover { background: #00fff5; transform: translateY(-1px); }
         }
 
         /* ============================================================
-           HERO SECTION (WARM ELEGANT CONSULTATIVE)
+           HERO SECTION
            ============================================================ */
-        .hero-section {
+        .hero {
             position: relative;
-            padding-top: 8.5rem;
-            padding-bottom: 5.5rem;
-            background: radial-gradient(circle at 90% 10%, rgba(6,78,59,0.06) 0%, rgba(252,250,246,1) 65%);
-        }
-        .hero-container {
-            max-width: 820px;
-        }
-        .hero-pre-text {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text-body);
-            margin-bottom: 0.85rem;
-            display: block;
-        }
-        .hero-main-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.6rem, 5.2vw, 4.2rem);
-            line-height: 1.1;
-            font-weight: 600;
-            color: var(--emerald-deep);
-            margin-bottom: 1.5rem;
-        }
-        .hero-description {
-            font-size: 1.12rem;
-            line-height: 1.7;
-            color: var(--text-body);
-            margin-bottom: 2.25rem;
-            max-width: 680px;
-        }
-
-        .hero-trust-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid var(--border-soft);
-        }
-        .badge-trust-item {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            gap: 0.55rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--emerald-deep);
-        }
-        .badge-trust-item svg { color: var(--emerald-mid); }
-
-        /* ============================================================
-           STAT COUNTER CARDS
-           ============================================================ */
-        .stat-section {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border-soft);
-            border-bottom: 1px solid var(--border-soft);
-            padding: 3.5rem 0;
-        }
-        .stat-3grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.75rem;
-        }
-        @media (min-width: 768px) {
-            .stat-3grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        .stat-card-white {
-            background: var(--bg-warm);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            text-align: center;
-        }
-        .stat-number {
-            font-family: var(--font-serif);
-            font-size: 3.2rem;
-            line-height: 1;
-            color: var(--emerald-deep);
-            margin-bottom: 0.4rem;
+            padding-top: 6rem;
+            overflow: hidden;
         }
 
-        /* ============================================================
-           BAB 01 — MASALAH NYATA (PAIN POINTS FOR PARENTS)
-           ============================================================ */
-        .pain-3grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        @media (min-width: 768px) {
-            .pain-3grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        .pain-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.5rem;
-            padding: 2.25rem 1.75rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .pain-icon-box {
-            width: 48px; height: 48px;
+        /* Animated gradient orbs */
+        .hero-orb {
+            position: absolute;
             border-radius: 50%;
-            background: var(--crimson-subtle);
-            color: var(--crimson-pain);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 1.25rem;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: orbFloat 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .orb-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, #00e5cc 0%, transparent 70%);
+            top: -150px; right: -100px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, #ffb830 0%, transparent 70%);
+            bottom: 50px; left: -80px;
+            opacity: 0.2;
+            animation-delay: -3s;
+        }
+        .orb-3 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, #ff4468 0%, transparent 70%);
+            top: 40%; left: 40%;
+            opacity: 0.12;
+            animation-delay: -5s;
+        }
+        @keyframes orbFloat {
+            from { transform: translateY(0) scale(1); }
+            to   { transform: translateY(-40px) scale(1.08); }
         }
 
-        /* ============================================================
-           BAB 02 — RE-ENGINEERED STUDENT MAP SIMULATOR (LIGHT THEME)
-           ============================================================ */
-        .sim-card-wrapper {
-            background: var(--bg-card);
-            border: 1px solid var(--border-emerald);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            margin-top: 3rem;
-            box-shadow: 0 16px 45px rgba(6, 78, 59, 0.07);
+        /* Grid pattern overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(0,229,204,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,229,204,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
         }
-        .sim-grid-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            padding: 4rem 0 5rem;
+        }
+
+        .hero-label {
+            display: inline-flex;
             align-items: center;
-        }
-        @media (min-width: 900px) {
-            .sim-grid-layout { grid-template-columns: 1fr 1fr; }
-        }
-
-        .trait-chip-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal-vivid);
+            border: 1px solid rgba(0,229,204,0.25);
+            background: rgba(0,229,204,0.06);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
             margin-bottom: 2rem;
         }
-        .trait-chip {
-            background: var(--bg-warm);
-            border: 1px solid var(--border-soft);
+        .hero-label .dot {
+            width: 6px; height: 6px;
+            background: var(--teal-vivid);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50%      { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.08;
+            font-weight: 400;
+            color: var(--text-white);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+        .hero-title .highlight {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--teal-vivid), var(--amber-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-title .strike {
+            text-decoration: line-through;
+            color: var(--crimson);
+            -webkit-text-fill-color: var(--crimson);
+            opacity: 0.75;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.75;
             color: var(--text-body);
-            padding: 0.55rem 1.1rem;
+            margin-bottom: 2.75rem;
+            max-width: 600px;
+        }
+        .hero-subtitle strong { color: var(--text-white); }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .btn-primary-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--teal-vivid);
+            color: #080c14;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 1rem 2rem;
             border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            border: none;
             cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 32px rgba(0,229,204,0.3), 0 8px 24px rgba(0,229,204,0.15);
+            white-space: nowrap;
         }
-        .trait-chip.active {
-            background: var(--emerald-deep);
-            color: #ffffff;
-            border-color: var(--emerald-deep);
-            box-shadow: 0 4px 14px rgba(6, 78, 59, 0.25);
-        }
-
-        .career-output-box {
-            background: var(--bg-warm);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-        }
-        .career-item-row {
-            padding: 1rem 0;
-            border-bottom: 1px dashed var(--border-soft);
-        }
-        .career-item-row:last-child { border-bottom: none; }
-        .career-title-text {
-            font-weight: 700;
-            font-size: 1.08rem;
-            color: var(--emerald-deep);
-        }
-        .career-salary-line {
-            display: block;
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--gold-main);
-            margin-top: 0.2rem;
-            margin-bottom: 0.35rem;
-        }
-        .career-desc-text {
-            font-size: 0.88rem;
-            color: var(--text-body);
+        @media(hover:hover){
+            .btn-primary-dark:hover {
+                background: #00fff5;
+                box-shadow: 0 0 48px rgba(0,229,204,0.5), 0 12px 32px rgba(0,229,204,0.25);
+                transform: translateY(-2px);
+            }
         }
 
-        /* ============================================================
-           BAB 03 — 24/7 AI COUNSELOR CHAT SHOWCASE
-           ============================================================ */
-        .ai-chat-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.75rem;
-            overflow: hidden;
-            box-shadow: 0 16px 45px rgba(0,0,0,0.05);
-            margin-top: 3rem;
+        .btn-ghost-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 1.75rem;
+            border-radius: 100px;
+            border: 1px solid var(--bg-border-mid);
+            cursor: pointer;
+            text-decoration: none;
         }
-        .ai-chat-header {
-            background: var(--emerald-deep);
-            color: #ffffff;
-            padding: 1.25rem 1.75rem;
+        @media(hover:hover){
+            .btn-ghost-dark:hover {
+                border-color: rgba(255,255,255,0.25);
+                background: rgba(255,255,255,0.04);
+            }
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-top: 2.25rem;
+            border-top: 1px solid var(--bg-border);
+        }
+        .trust-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-        }
-        .ai-chat-body {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-height: 380px;
-            overflow-y: auto;
-            background: #faf8f5;
-        }
-        .chat-bubble {
-            max-width: 85%;
-            padding: 0.9rem 1.2rem;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        .bubble-parent {
-            background: var(--emerald-deep);
-            color: #ffffff;
-            align-self: flex-end;
-            border-radius: 1.1rem 1.1rem 0.2rem 1.1rem;
-        }
-        .bubble-ai {
-            background: #ffffff;
-            color: var(--text-main);
-            align-self: flex-start;
-            border-radius: 1.1rem 1.1rem 1.1rem 0.2rem;
-            border: 1px solid var(--border-soft);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .prompt-chips-container {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding: 1rem 1.5rem;
-            background: #ffffff;
-            border-top: 1px solid var(--border-soft);
-        }
-        .prompt-chip {
-            background: var(--bg-warm);
-            border: 1px solid var(--border-soft);
-            color: var(--text-body);
-            font-size: 0.78rem;
+            gap: 0.6rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            padding: 0.45rem 0.95rem;
-            border-radius: 100px;
-            white-space: nowrap;
-            cursor: pointer;
+            color: var(--text-body);
         }
-        .prompt-chip:hover {
-            background: var(--emerald-deep);
-            color: #ffffff;
+        .trust-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: var(--teal-dim);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
         }
 
         /* ============================================================
-           BAB 04 — WHATSAPP EVIDENCE CAROUSEL
+           STAT TICKER STRIP
            ============================================================ */
+        .ticker-strip {
+            background: var(--bg-card);
+            border-top: 1px solid var(--bg-border);
+            border-bottom: 1px solid var(--bg-border);
+            padding: 1.5rem 0;
+            overflow: hidden;
+        }
+        .ticker-track {
+            display: flex;
+            gap: 4rem;
+            animation: tickerScroll 25s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes tickerScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-body);
+            flex-shrink: 0;
+        }
+        .ticker-item .t-num {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--teal-vivid);
+            line-height: 1;
+        }
+        .ticker-sep {
+            color: var(--bg-border-mid);
+            font-size: 1.5rem;
+        }
+
+        /* ============================================================
+           SECTION LAYOUT
+           ============================================================ */
+        .section { padding: 6rem 0; }
+        .section-alt { background: var(--bg-card); }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal-vivid);
+            margin-bottom: 1.25rem;
+        }
+        .section-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 20px; height: 2px;
+            background: var(--teal-vivid);
+            border-radius: 2px;
+        }
+
+        .section-title-dark {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--text-white);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .section-title-dark em {
+            font-style: italic;
+            color: var(--teal-vivid);
+        }
+
+        .section-body {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-body);
+            max-width: 600px;
+        }
+
+        /* ============================================================
+           BAB 01 — MASALAH (PAIN POINTS)
+           ============================================================ */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+        @media(min-width:768px){ .pain-grid { grid-template-columns: repeat(3,1fr); } }
+
+        .pain-card {
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.75rem;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .pain-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 0%, rgba(255,68,104,0.08) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        @media(hover:hover){ .pain-card:hover::after { opacity: 1; } }
+
+        .pain-icon {
+            width: 48px; height: 48px;
+            border-radius: var(--radius-sm);
+            background: var(--crimson-dim);
+            color: var(--crimson);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+        .pain-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-white);
+            margin-bottom: 0.6rem;
+        }
+        .pain-desc { font-size: 0.92rem; color: var(--text-body); line-height: 1.65; }
+
+        /* ============================================================
+           BAB 02 — WHATSAPP CAROUSEL (Kisah Nyata Orang Tua)
+           ============================================================ */
+        .carousel-section { padding: 6rem 0; }
+
         .carousel-wrapper {
             position: relative;
             margin-top: 3rem;
-            width: 100%;
+            overflow: hidden;
         }
-        .carousel-track-container {
+
+        .ca-track {
             display: flex;
             gap: 1.5rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            padding: 0.5rem 0.25rem 1.5rem;
-            scrollbar-width: none;
-        }
-        .carousel-track-container::-webkit-scrollbar { display: none; }
-
-        .carousel-slide-card {
-            flex: 0 0 100%;
-            max-width: 100%;
-            scroll-snap-align: center;
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.25rem;
-            padding: 0.75rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-        }
-        @media (min-width: 640px) {
-            .carousel-slide-card { flex: 0 0 calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
-        }
-        @media (min-width: 1024px) {
-            .carousel-slide-card { flex: 0 0 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem); }
+            transition: transform 0.55s var(--ease-out);
+            will-change: transform;
         }
 
-        .img-frame-box {
-            width: 100%;
-            border-radius: 0.85rem;
+        .ca-slide {
+            flex: 0 0 min(340px, 85vw);
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            background: #000000;
-            cursor: pointer;
+            position: relative;
         }
-        .img-frame-box img {
-            width: 100%; height: auto; display: block; object-fit: contain;
-            transition: transform 300ms var(--ease-out);
-        }
-        .img-frame-box:hover img { transform: scale(1.02); }
 
-        .carousel-arrow {
-            position: absolute;
-            top: 50%; transform: translateY(-50%);
+        /* WhatsApp-style header */
+        .wa-header {
+            background: linear-gradient(135deg, #075e54, #128c7e);
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .wa-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .wa-name { font-size: 0.95rem; font-weight: 600; color: #fff; }
+        .wa-online { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+
+        /* The image inside the slide */
+        .ca-img-frame {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            background: #ECE5DD;
+            position: relative;
+        }
+        .ca-img-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease-out);
+        }
+        @media(hover:hover){
+            .ca-slide:hover .ca-img-frame img { transform: scale(1.02); }
+        }
+
+        /* Caption strip */
+        .ca-caption {
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-raised);
+        }
+        .ca-caption-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal-vivid);
+            margin-bottom: 0.35rem;
+        }
+        .ca-caption-text {
+            font-size: 0.9rem;
+            color: var(--text-body);
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        /* Navigation buttons */
+        .ca-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .ca-arrow {
             width: 48px; height: 48px;
             border-radius: 50%;
-            background: var(--bg-card);
-            color: var(--emerald-deep);
-            border: 1px solid var(--border-soft);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border-mid);
+            color: var(--text-white);
+            font-size: 1.25rem;
+            cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 10;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
         }
-        .carousel-arrow.left { left: -22px; }
-        .carousel-arrow.right { right: -22px; }
-        @media (max-width: 640px) {
-            .carousel-arrow.left { left: 4px; }
-            .carousel-arrow.right { right: 4px; }
+        @media(hover:hover){
+            .ca-arrow:hover {
+                background: var(--teal-dim);
+                border-color: rgba(0,229,204,0.35);
+                color: var(--teal-vivid);
+            }
         }
-
-        .pagination-dots {
-            display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem;
+        .ca-dots {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
         }
-        .pagination-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: var(--border-soft); cursor: pointer;
-            transition: background 250ms, width 250ms;
+        .ca-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--bg-border-mid);
+            transition: all 0.3s var(--ease-out);
+            cursor: pointer;
         }
-        .pagination-dot.active { background: var(--emerald-deep); width: 26px; border-radius: 100px; }
+        .ca-dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--teal-vivid);
+        }
 
         /* ============================================================
-           BAB 05 — DECOY PRICING GRID (4 TIERS)
+           BAB 03 — HOW IT WORKS (STEP TIMELINE)
            ============================================================ */
-        .pricing-4grid-container {
+        .steps-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3.5rem;
+            position: relative;
+        }
+        @media(min-width:768px){
+            .steps-row { grid-template-columns: repeat(3,1fr); }
+            .steps-row::before {
+                content: '';
+                position: absolute;
+                top: 2.5rem;
+                left: calc(100%/6);
+                right: calc(100%/6);
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--teal-vivid), transparent);
+                z-index: 0;
+            }
+        }
+
+        .step-card {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+        }
+        @media(hover:hover){
+            .step-card:hover {
+                border-color: rgba(0,229,204,0.25);
+                background: linear-gradient(135deg, rgba(0,229,204,0.04), transparent);
+            }
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--teal-dim);
+            border: 1.5px solid rgba(0,229,204,0.3);
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--teal-vivid);
+            font-style: italic;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 24px rgba(0,229,204,0.15);
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-white);
+            margin-bottom: 0.6rem;
+        }
+        .step-desc { font-size: 0.9rem; color: var(--text-body); line-height: 1.6; }
+
+        /* ============================================================
+           BAB 04 — INTERACTIVE RIASEC WIDGET
+           ============================================================ */
+        .widget-section { padding: 6rem 0; background: var(--bg-deep); }
+        .widget-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        @media(min-width: 900px){
+            .widget-layout { grid-template-columns: 1fr 1fr; }
+        }
+
+        .trait-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .trait-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .trait-label {
+            width: 120px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-body);
+            flex-shrink: 0;
+        }
+        .trait-bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-border);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+        .trait-bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--teal-vivid), var(--amber-bright));
+            transition: width 0.6s var(--ease-out);
+        }
+
+        .trait-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 100px;
+            background: var(--bg-border);
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .trait-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--teal-vivid);
+            box-shadow: 0 0 12px rgba(0,229,204,0.5);
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+        .trait-slider::-webkit-slider-thumb:active { transform: scale(1.3); }
+        .trait-slider::-moz-range-thumb {
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--teal-vivid);
+            border: none;
+            cursor: pointer;
+        }
+
+        .widget-result {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            min-height: 300px;
+        }
+        .widget-result-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--teal-vivid);
+            margin-bottom: 1.25rem;
+        }
+        .career-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.4rem 0.85rem;
+            border-radius: 100px;
+            border: 1px solid var(--bg-border-mid);
+            color: var(--text-body);
+            margin: 0.3rem 0.25rem;
+            transition: all 0.25s;
+            cursor: default;
+        }
+        .career-chip.highlight {
+            background: var(--teal-dim);
+            border-color: rgba(0,229,204,0.3);
+            color: var(--teal-vivid);
+        }
+        .salary-label {
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--bg-border);
+        }
+        .salary-label p { font-size: 0.85rem; color: var(--text-body); }
+        .salary-range {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--amber-bright);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================================
+           BAB 05 — SOCIAL PROOF / TESTIMONY STATS
+           ============================================================ */
+        .proof-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
-            margin-top: 3.5rem;
+            margin-top: 3rem;
         }
-        @media (min-width: 640px) {
-            .pricing-4grid-container { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (min-width: 1100px) {
-            .pricing-4grid-container { grid-template-columns: repeat(4, 1fr); }
-        }
+        @media(min-width:640px){ .proof-grid { grid-template-columns: repeat(2,1fr); } }
+        @media(min-width:900px){ .proof-grid { grid-template-columns: repeat(4,1fr); } }
 
-        .price-card-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.5rem;
-            padding: 2.25rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-            transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+        .proof-card {
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
         }
-        @media (hover: hover) and (pointer: fine) {
-            .price-card-box:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
-        }
-
-        .price-card-box.target-hero {
-            border: 2px solid var(--gold-main);
-            background: #fffdfa;
-            box-shadow: 0 14px 40px rgba(217, 119, 6, 0.18);
-        }
-        .hero-badge-pill {
-            position: absolute;
-            top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--gold-main); color: #ffffff;
-            font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-            padding: 0.35rem 0.95rem; border-radius: 100px;
-        }
-
-        .price-card-box.decoy-tier {
-            background: #faf8f5;
-            opacity: 0.88;
-        }
-
-        .price-title-text {
+        .proof-num {
             font-family: var(--font-serif);
-            font-size: 1.65rem;
-            color: var(--emerald-deep);
-            margin-bottom: 0.2rem;
+            font-size: 3rem;
+            line-height: 1;
+            font-style: italic;
+            color: var(--teal-vivid);
+            margin-bottom: 0.5rem;
         }
-        .price-num-tag {
-            font-family: var(--font-serif);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--emerald-deep);
-            margin: 1.25rem 0;
-        }
-
-        .price-features-ul {
-            list-style: none;
-            margin-bottom: 2rem;
-            font-size: 0.88rem;
-            color: var(--text-body);
-        }
-        .price-features-ul li {
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-        .price-features-ul svg { color: var(--emerald-mid); flex-shrink: 0; margin-top: 0.2rem; }
+        .proof-num span { color: var(--amber-bright); }
+        .proof-label { font-size: 0.88rem; color: var(--text-body); line-height: 1.45; }
 
         /* ============================================================
-           INTERACTIVE WEB QUIZ MODAL & LIGHTBOX
+           BAB 06 — PRICING (DECOY STRATEGY)
            ============================================================ */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(6, 78, 59, 0.6);
-            backdrop-filter: blur(12px);
-            align-items: center; justify-content: center;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 200ms var(--ease-out);
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-top: 3rem;
         }
-        .modal-overlay.active {
+        @media(min-width:640px){ .pricing-grid { grid-template-columns: repeat(2,1fr); } }
+        @media(min-width:1000px){ .pricing-grid { grid-template-columns: repeat(4,1fr); } }
+
+        .price-card {
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.75rem;
             display: flex;
-            opacity: 1;
-        }
-        .quiz-modal-box {
-            background: var(--bg-card);
-            color: var(--text-main);
-            border-radius: 1.75rem;
-            max-width: 520px;
-            width: 100%;
-            padding: 2.5rem;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-            transform: scale(0.96);
-            transition: transform 250ms var(--ease-out);
+            flex-direction: column;
+            gap: 1rem;
             position: relative;
+            cursor: default;
+            transition: border-color 0.25s, transform 0.2s;
         }
-        .modal-overlay.active .quiz-modal-box {
-            transform: scale(1);
+        @media(hover:hover){ .price-card:hover { border-color: rgba(0,229,204,0.2); } }
+
+        .price-card.hero-card {
+            background: linear-gradient(145deg, rgba(0,229,204,0.08), rgba(0,229,204,0.02));
+            border-color: rgba(0,229,204,0.35);
+            box-shadow: 0 0 48px rgba(0,229,204,0.08), 0 24px 48px rgba(0,0,0,0.3);
+            transform: scale(1.03);
         }
-        .close-modal-x {
+        @media(hover:hover){ .price-card.hero-card:hover { transform: scale(1.05); } }
+
+        .price-badge {
             position: absolute;
-            top: 1.25rem; right: 1.5rem;
-            font-size: 1.8rem; cursor: pointer; color: var(--text-light);
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--teal-vivid);
+            color: #080c14;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
         }
 
-        .quiz-step-btn {
+        .price-tier {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .price-name {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--text-white);
+        }
+        .price-num {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            line-height: 1;
+            color: var(--text-white);
+        }
+        .price-num span { font-size: 1rem; color: var(--text-body); }
+        .price-free { color: var(--teal-vivid); }
+
+        .price-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            flex: 1;
+        }
+        .price-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text-body);
+            line-height: 1.45;
+        }
+        .price-features li .check { color: var(--teal-vivid); flex-shrink: 0; margin-top: 0.1rem; }
+        .price-features li .x-mark { color: var(--text-muted); flex-shrink: 0; }
+
+        .price-cta {
+            display: block;
             width: 100%;
-            padding: 1.05rem 1.25rem;
-            margin-bottom: 0.75rem;
-            background: var(--bg-warm);
-            border: 1px solid var(--border-soft);
-            border-radius: 0.85rem;
-            text-align: left;
-            font-weight: 600;
-            color: var(--emerald-deep);
+            text-align: center;
+            padding: 0.85rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
             cursor: pointer;
+            text-decoration: none;
+            border: none;
         }
-        .quiz-step-btn:hover {
-            background: var(--emerald-deep);
-            color: #ffffff;
-            border-color: var(--emerald-deep);
+        .price-cta-outline {
+            background: transparent;
+            border: 1px solid var(--bg-border-mid);
+            color: var(--text-white);
         }
+        @media(hover:hover){ .price-cta-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); } }
+        .price-cta-solid {
+            background: var(--teal-vivid);
+            color: #080c14;
+            box-shadow: 0 0 20px rgba(0,229,204,0.25);
+        }
+        @media(hover:hover){ .price-cta-solid:hover { background: #00fff5; box-shadow: 0 0 32px rgba(0,229,204,0.4); } }
 
-        /* Lightbox Image Zoom */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.88);
-            backdrop-filter: blur(10px);
-            align-items: center; justify-content: center;
-            padding: 1.5rem;
+        /* ============================================================
+           BAB 07 — FAQ
+           ============================================================ */
+        .faq-list {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
-        .lightbox-overlay.active { display: flex; }
-        .lightbox-overlay img { max-width: 92%; max-height: 90vh; border-radius: 0.75rem; }
-
-        /* FAQ Accordion */
-        .faq-item-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 1.25rem;
-            margin-bottom: 0.85rem;
+        .faq-item {
+            background: var(--bg-raised);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-sm);
             overflow: hidden;
         }
-        .faq-header {
-            width: 100%; padding: 1.35rem 1.5rem;
-            background: none; border: none; text-align: left;
-            font-family: var(--font-serif); font-size: 1.3rem; color: var(--emerald-deep);
-            display: flex; justify-content: space-between; align-items: center;
+        .faq-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 1.75rem;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            text-align: left;
             cursor: pointer;
+            gap: 1rem;
         }
+        .faq-toggle:hover { background: rgba(255,255,255,0.02); }
+        .faq-arrow {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--bg-border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            transition: transform 0.3s var(--ease-out), background 0.2s;
+        }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--teal-dim); color: var(--teal-vivid); }
         .faq-body {
-            padding: 0 1.5rem 1.35rem; font-size: 0.95rem; color: var(--text-body);
-            line-height: 1.65; display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--ease-out), padding 0.3s;
+            padding: 0 1.75rem;
         }
-        .faq-body.open { display: block; }
+        .faq-item.open .faq-body { max-height: 400px; padding: 0 1.75rem 1.4rem; }
+        .faq-body p { font-size: 0.95rem; color: var(--text-body); line-height: 1.75; }
 
-        footer {
-            background: var(--emerald-deep);
-            color: rgba(255,255,255,0.75);
-            padding: 3.5rem 0;
+        /* ============================================================
+           FINAL CTA SECTION
+           ============================================================ */
+        .final-cta {
+            padding: 8rem 0;
             text-align: center;
-            font-size: 0.88rem;
+            position: relative;
+            overflow: hidden;
         }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 800px; height: 600px;
+            transform: translate(-50%,-50%);
+            background: radial-gradient(ellipse, rgba(0,229,204,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        .final-cta-title em { font-style: italic; color: var(--teal-vivid); }
+        .final-cta-sub {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            margin-bottom: 2.75rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        .final-cta-sub strong { color: var(--text-white); }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--bg-border);
+            padding: 3rem 0;
+        }
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--text-white);
+        }
+        .footer-brand em { font-style: italic; color: var(--teal-vivid); }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--text-body); }
+        .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* ============================================================
+           FLOATING WA BUTTON
+           ============================================================ */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 300;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: waFloat 3s ease-in-out infinite;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        @media(hover:hover){
+            .wa-float:hover {
+                transform: scale(1.1);
+                box-shadow: 0 12px 40px rgba(37,211,102,0.6);
+            }
+        }
+        @keyframes waFloat {
+            0%,100%{ transform: translateY(0); }
+            50%    { transform: translateY(-8px); }
+        }
+        .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+
+        /* ============================================================
+           RESPONSIVE TWEAKS
+           ============================================================ */
+        @media(max-width:640px){
+            .hero-title { font-size: 2.4rem; }
+            .price-card.hero-card { transform: none; }
+            .ca-slide { flex: 0 0 85vw; }
+        }
+
+        /* ============================================================
+           ANIMATED COUNTER
+           ============================================================ */
+        .count-up { display: inline-block; }
     </style>
 </head>
 <body>
 
-    <!-- Glass Header Navbar -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <div class="brand-logo">BetterFuture<span>ISCA</span></div>
-            <button class="btn-primary" onclick="openQuizModal()" style="padding:0.6rem 1.3rem; font-size:0.85rem;">Mulai Kuis Gratis</button>
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="brand">Better <em>Future</em></a>
+            <a href="https://wa.me/6281274663887?text=Halo%2C%20saya%20mau%20tahu%20lebih%20lanjut%20tentang%20tes%20bakat%20anak%20Better%20Future" target="_blank" class="nav-cta">
+                📲 Tanya Gratis
+            </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section (Warm Consultative Elegance) -->
-    <section class="hero-section">
-        <div class="container hero-container">
-            <span class="hero-pre-text">Lebaran nanti, takut ada yang nanya:</span>
-            <h1 class="hero-main-title italic-crimson">"Anak kamu putus kuliah ya?"</h1>
-            <p class="hero-description">
-                Anak kita tidak akan PUTUS KULIAH kalau sesuai dengan minat dan bakatnya. Jangan pikir panjang "Ambil tes sekarang".
-            </p>
-            
-            <button class="btn-primary" onclick="openQuizModal()" style="font-size:1.05rem; padding:1.15rem 2.5rem;">
-                Ambil Tes Gratis di Web Sekarang
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero" id="hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
 
-            <div class="hero-trust-badges">
-                <div class="badge-trust-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    Disupervisi Psikolog HIMPSI
-                </div>
-                <div class="badge-trust-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    Analisa 19-Faktor Psikologi
-                </div>
-                <div class="badge-trust-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    Garansi 100% Bebas Risiko
-                </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-label reveal">
+                <span class="dot"></span>
+                Psikologi Ilmiah × 19 Faktor Bakat
             </div>
-        </div>
-    </section>
 
-    <!-- Stat Counter Section -->
-    <section class="stat-section">
-        <div class="container">
-            <div class="stat-3grid">
-                <div class="stat-card-white">
-                    <div class="stat-number">87%</div>
-                    <p style="font-size:0.9rem; color:var(--text-body);">Mahasiswa Indonesia terbukti salah jurusan akibat memilih tanpa asesmen psikologi bakat.</p>
-                </div>
-                <div class="stat-card-white">
-                    <div class="stat-number">Rp 150 Jt+</div>
-                    <p style="font-size:0.9rem; color:var(--text-body);">Uang kuliah &amp; waktu 4 tahun terbuang jika anak memutuskan drop-out di tengah jalan.</p>
-                </div>
-                <div class="stat-card-white">
-                    <div class="stat-number">19 Faktor</div>
-                    <p style="font-size:0.9rem; color:var(--text-body);">Analisa ilmiah komprehensif RIASEC, MBTI, DISC, VAKS, &amp; 16PF untuk pilihan jurusan anti-gagal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1 class="hero-title reveal reveal-delay-1">
+                Jangan Biarkan Anakmu<br>
+                <span class="strike">Salah Jurusan</span> &amp;<br>
+                <span class="highlight">Buang Rp 150 Juta</span>
+            </h1>
 
-    <!-- Bab 01: Reality Check for Parents -->
-    <section class="section-padding" style="background:var(--bg-warm);">
-        <div class="container">
-            <span class="chapter-pill">Bab 01 — Masalah Nyata Orang Tua</span>
-            <h2 class="section-title">
-                Jangan Biarkan Anak Menyesal di <span class="italic-crimson">Tengah Jalan.</span>
-            </h2>
-            <p style="max-width:580px; color:var(--text-body);">
-                Kuliah salah jurusan bukan hanya soal nilai IPK — ini mengancam masa depan karir, menghancurkan kepercayaan diri anak, dan menguras finansial keluarga.
+            <p class="hero-subtitle reveal reveal-delay-2">
+                <strong>87% mahasiswa Indonesia merasa salah jurusan.</strong> Sebagian drop out. Pemetaan bakat 20 menit dari Better Future membantu orang tua memilihkan jalur kuliah yang <em>tepat</em> — bukan sekadar mengikuti tren atau tekanan keluarga.
             </p>
 
-            <div class="pain-3grid">
-                <div class="pain-card">
-                    <div>
-                        <div class="pain-icon-box">⚡</div>
-                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Perang di Meja Makan</h3>
-                        <p style="font-size:0.92rem; color:var(--text-body);">Orang tua menginginkan jurusan yang 'aman', namun anak merasa dipaksa dan minat aslinya tidak pernah dipahami.</p>
-                    </div>
-                </div>
-                <div class="pain-card">
-                    <div>
-                        <div class="pain-icon-box">💸</div>
-                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Ratusan Juta Melayang</h3>
-                        <p style="font-size:0.92rem; color:var(--text-body);">Uang gedung &amp; SPP tiap semester terbuang sia-sia saat anak memutuskan tidak mau melanjutkan kuliahnya.</p>
-                    </div>
-                </div>
-                <div class="pain-card">
-                    <div>
-                        <div class="pain-icon-box">🙈</div>
-                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Cemas saat Arisan &amp; Lebaran</h3>
-                        <p style="font-size:0.92rem; color:var(--text-body);">Perasaan cemas saat keluarga besar atau kerabat menanyakan kepastian jurusan dan kelanjutan studi anak.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bab 02: Interactive Student Map Simulator (The Solution) -->
-    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);">
-        <div class="container">
-            <span class="chapter-pill">Bab 02 — Solusi Ilmiah Better Future</span>
-            <h2 class="section-title">
-                Analisa 19 Faktor Minat Bakat &amp; <span class="italic-emerald">Peta Jurusan Anti-Gagal.</span>
-            </h2>
-            <p style="max-width:620px; color:var(--text-body);">
-                Coba simulasikan Student Map di bawah ini. Klik dimensi bakat dominan anak Anda dan perhatikan bagaimana RIASEC Radar Chart &amp; Proyeksi Karir memperbarui datanya secara real-time!
-            </p>
-
-            <div class="sim-card-wrapper">
-                <div class="trait-chip-bar" id="simTraitBar">
-                    <button class="trait-chip active" data-sim="social">Social (S) - 91%</button>
-                    <button class="trait-chip" data-sim="artistic">Artistic (A) - 95%</button>
-                    <button class="trait-chip" data-sim="investigative">Investigative (I) - 88%</button>
-                    <button class="trait-chip" data-sim="enterprising">Enterprising (E) - 82%</button>
-                </div>
-
-                <div class="sim-grid-layout">
-                    <!-- SVG Radar Chart -->
-                    <div style="text-align:center;">
-                        <svg viewBox="0 0 340 250" style="max-width:320px; width:100%; height:auto;">
-                            <polygon points="170,68 232,104 232,176 170,212 108,176 108,104" fill="none" stroke="rgba(6,78,59,0.15)" stroke-width="1.5"/>
-                            <polygon points="170,92 211,116 211,164 170,188 129,164 129,116" fill="none" stroke="rgba(6,78,59,0.1)" stroke-width="1"/>
-                            <line x1="170" y1="140" x2="170" y2="68" stroke="rgba(6,78,59,0.2)"/>
-                            <line x1="170" y1="140" x2="232" y2="104" stroke="rgba(6,78,59,0.2)"/>
-                            <line x1="170" y1="140" x2="232" y2="176" stroke="rgba(6,78,59,0.2)"/>
-                            <line x1="170" y1="140" x2="170" y2="212" stroke="rgba(6,78,59,0.2)"/>
-                            <line x1="170" y1="140" x2="108" y2="176" stroke="rgba(6,78,59,0.2)"/>
-                            <line x1="170" y1="140" x2="108" y2="104" stroke="rgba(6,78,59,0.2)"/>
-
-                            <polygon id="simPolygon" points="170,80 225,110 220,170 170,205 115,165 120,110" fill="rgba(4, 120, 87, 0.25)" stroke="#047857" stroke-width="2.5" style="transition: all 400ms var(--ease-out);"/>
-
-                            <text x="170" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#064e3b">Realistic (R)</text>
-                            <text x="244" y="102" text-anchor="start" font-size="11" font-weight="700" fill="#064e3b">Investigative (I)</text>
-                            <text x="244" y="182" text-anchor="start" font-size="11" font-weight="700" fill="#064e3b">Artistic (A)</text>
-                            <text x="170" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#064e3b">Social (S)</text>
-                            <text x="96" y="182" text-anchor="end" font-size="11" font-weight="700" fill="#064e3b">Enterprising (E)</text>
-                            <text x="96" y="102" text-anchor="end" font-size="11" font-weight="700" fill="#064e3b">Conventional (C)</text>
-                        </svg>
-                    </div>
-
-                    <!-- Career Output List -->
-                    <div class="career-output-box">
-                        <h4 class="serif" style="font-size:1.5rem; color:var(--emerald-deep); margin-bottom:1rem;">Tujuan Karir &amp; Proyeksi Gaji</h4>
-                        <div id="simCareerContent">
-                            <div class="career-item-row">
-                                <div class="career-title-text">• Manajer Proyek</div>
-                                <span class="career-salary-line">(Rp. 10 Jt - 35 Jt)</span>
-                                <div class="career-desc-text">Membutuhkan kemampuan dalam mengorganisir, memimpin, dan menjaga stabilitas tim untuk mencapai target.</div>
-                            </div>
-                            <div class="career-item-row">
-                                <div class="career-title-text">• Konsultan Manajemen</div>
-                                <span class="career-salary-line">(Rp. 12 Jt - 80 Jt)</span>
-                                <div class="career-desc-text">Memanfaatkan kemampuan analitis dan persuasif untuk memberikan solusi strategis bagi perusahaan.</div>
-                            </div>
-                            <div class="career-item-row">
-                                <div class="career-title-text">• Spesialis Sumber Daya Manusia</div>
-                                <span class="career-salary-line">(Rp. 8 Jt - 27 Jt)</span>
-                                <div class="career-desc-text">Sangat cocok dengan kehangatan berinteraksi dan mengelola dinamika tim.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bab 03: 24/7 AI Counselor Live Interactive Showcase -->
-    <section class="section-padding" style="background:var(--bg-warm);">
-        <div class="container">
-            <div style="max-width:640px; margin-bottom:2.5rem;">
-                <span class="chapter-pill">Bab 03 — AI Counselor 24/7</span>
-                <h2 class="section-title">
-                    Konsultan Karir dalam Genggaman, <span class="italic-gold">Bebas Penghakiman.</span>
-                </h2>
-                <p style="color:var(--text-body); font-size:1rem;">
-                    Anak sering kali lebih terbuka berdiskusi dengan AI yang netral daripada dengan orang tua. Coba simulasi percakapan di bawah ini:
-                </p>
+            <div class="hero-cta-row reveal reveal-delay-3">
+                <a href="https://wa.me/6281274663887?text=Halo%2C%20saya%20mau%20tahu%20lebih%20lanjut%20tentang%20tes%20bakat%20anak%20Better%20Future" target="_blank" class="btn-primary-dark">
+                    📲 Mulai Tes Gratis — 20 Menit
+                </a>
+                <a href="#kisah-nyata" class="btn-ghost-dark">
+                    Lihat Kisah Nyata ↓
+                </a>
             </div>
 
-            <div class="ai-chat-box">
-                <div class="ai-chat-header">
-                    <div style="width:38px; height:38px; border-radius:50%; background:var(--gold-main); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">BF</div>
-                    <div>
-                        <div style="font-weight:700; color:#fff; font-size:0.95rem;">AI Counselor — Better Future</div>
-                        <div style="font-size:0.75rem; color:rgba(255,255,255,0.85);">Online 24/7 · Terintegrasi Student Map</div>
-                    </div>
+            <div class="hero-trust reveal reveal-delay-4">
+                <div class="trust-item">
+                    <div class="trust-icon">🏥</div>
+                    <span>Diverifikasi Dr. Teguh Lesmana, M.Psi (HIMPSI)</span>
                 </div>
-
-                <div class="ai-chat-body" id="chatDemoArea">
-                    <div class="chat-bubble bubble-parent">Gimana ya jawab keluarga kalau ditanya anak kuliah di mana? Anak saya masih bingung jurusan...</div>
-                    <div class="chat-bubble bubble-ai">Tenang, Bu. Dari Student Map Dika, kekuatan utamanya ada di Sosial (91) dan Minat Kreatif (95). Anak Ibu tidak bingung — dia hanya belum dipetakan secara ilmiah.</div>
-                    <div class="chat-bubble bubble-ai">Rekomendasi kami: Desain Komunikasi Visual jalur UX. Proyeksi gaji awal Rp 12 Jt - 25 Jt &amp; pertumbuhan industri +23%.</div>
+                <div class="trust-item">
+                    <div class="trust-icon">📊</div>
+                    <span>Akurasi 92,7% berbasis RIASEC + Holland</span>
                 </div>
-
-                <div class="prompt-chips-container">
-                    <span style="font-size:0.75rem; color:var(--text-light); align-self:center;">Coba tanya:</span>
-                    <button class="prompt-chip" onclick="sendDemoChat('Bisa bantu draf kalimat jawaban buat keluarga besar saat Lebaran?')">"Draft jawaban Lebaran?"</button>
-                    <button class="prompt-chip" onclick="sendDemoChat('Apa bedanya tes ini dengan tes IQ biasa?')">"Bedanya dengan tes IQ?"</button>
-                    <button class="prompt-chip" onclick="sendDemoChat('Bagaimana kalau anak ternyata tidak cocok dengan jurusan pilihan ortu?')">"Anak beda pendapat dengan ortu?"</button>
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <span>Hanya 20 menit — bukan 4 jam!</span>
                 </div>
-            </div>
-
-            <div style="text-align:center; margin-top:2.5rem;">
-                <button class="btn-primary btn-emerald-solid" onclick="openQuizModal()">Ambil Tes Gratis, coba ngobrol</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bab 04: WhatsApp Chat Evidence Carousel -->
-    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);">
-        <div class="container">
-            <span class="chapter-pill">Bab 04 — Kisah Nyata Orang Tua</span>
-            <h2 class="section-title">
-                Bukti Chat WhatsApp: <span class="italic-emerald">Orang Tua &amp; Siswa Yang Terbantu</span>
-            </h2>
-
-            <div class="carousel-wrapper">
-                <button class="carousel-arrow left" id="btnPrevSlide" aria-label="Sebelumnya">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-
-                <div class="carousel-track-container" id="chatCarouselTrack">
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/3 digit.png')">
-                            <img src="BF resources/3 digit.png" alt="Testimoni WhatsApp 3 Digit" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/5.png')">
-                            <img src="BF resources/5.png" alt="Testimoni WhatsApp 5" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/6.png')">
-                            <img src="BF resources/6.png" alt="Testimoni WhatsApp 6" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/20 menit.png')">
-                            <img src="BF resources/20 menit.png" alt="Testimoni WhatsApp 20 Menit" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/dr gigi.png')">
-                            <img src="BF resources/dr gigi.png" alt="Testimoni WhatsApp Dr Gigi" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="carousel-slide-card">
-                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/peta.png')">
-                            <img src="BF resources/peta.png" alt="Testimoni WhatsApp Peta" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-arrow right" id="btnNextSlide" aria-label="Selanjutnya">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-
-                <div class="pagination-dots" id="chatCarouselDots"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bab 05: Decoy Pricing Grid (4 Tiers) -->
-    <section class="section-padding" id="harga" style="background:var(--bg-warm);">
-        <div class="container">
-            <span class="chapter-pill">Bab 05 — Investasi Spesial Masa Depan</span>
-            <h2 class="section-title">
-                Satu Keputusan Kecil, <span class="italic-gold">Menyelamatkan Ratusan Juta.</span>
-            </h2>
-            <p style="max-width:580px; color:var(--text-body);">
-                Bandingkan investasi ini dengan Rp 150 juta biaya salah jurusan — atau harga diri keluarga yang tak ternilai. Ini bukan biaya. Ini penyelamat.
-            </p>
-
-            <div class="pricing-4grid-container">
-                <!-- 1. Free Lead Magnet -->
-                <div class="price-card-box">
-                    <div>
-                        <h3 class="price-title-text">Basic Report</h3>
-                        <p style="font-size:0.8rem; color:var(--text-light);">Pemetaan Awal Gratis</p>
-                        <div class="price-num-tag">Gratis</div>
-                        <ul class="price-features-ul">
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Ringkasan 3 Dimensi Bakat</li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses Kuis Online</li>
-                        </ul>
-                    </div>
-                    <button class="btn-primary" onclick="openQuizModal()" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--emerald-deep); box-shadow:none;">Coba Gratis</button>
-                </div>
-
-                <!-- 2. Advanced Report Tier -->
-                <div class="price-card-box">
-                    <div>
-                        <h3 class="price-title-text">Advanced Report</h3>
-                        <p style="font-size:0.8rem; color:var(--text-light);">Laporan Lengkap 19 Faktor</p>
-                        <div class="price-num-tag">Rp 80.000</div>
-                        <ul class="price-features-ul">
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Analisa 19 Faktor Lengkap</li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Peta Jurusan Kuliah Anti-Gagal</li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Proyeksi Gaji Tujuan Karir</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20ambil%20Advanced%20Report%2080rb" class="btn-primary" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--emerald-deep); box-shadow:none;">Pilih Advanced</a>
-                </div>
-
-                <!-- 3. AI Counselor Only (DECOY TIER CARD) -->
-                <div class="price-card-box decoy-tier">
-                    <div>
-                        <h3 class="price-title-text">AI Counselor Only</h3>
-                        <p style="font-size:0.8rem; color:var(--text-light);">Akses AI Konsultan Saja</p>
-                        <div class="price-num-tag">Rp 110.000</div>
-                        <ul class="price-features-ul">
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses AI Counselor 24/7</li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bebas Diskusi Kapan Pun</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20AI%20Counselor%20Only" class="btn-primary" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--text-light); box-shadow:none;">Pilih AI Only</a>
-                </div>
-
-                <!-- 4. Advanced + AI Bundle (HERO TARGET OFFER) -->
-                <div class="price-card-box target-hero">
-                    <span class="hero-badge-pill">Paling Laris (Hemat 70rb)</span>
-                    <div>
-                        <h3 class="price-title-text">Paket Lengkap + AI</h3>
-                        <p style="font-size:0.8rem; color:var(--text-light);">Laporan 19 Faktor + AI 24/7</p>
-                        <div class="price-num-tag">Rp 120.000 <span style="font-size:0.8rem; font-family:var(--font-sans); color:var(--crimson-pain); font-weight:700;">(Cuma +10rb!)</span></div>
-                        <ul class="price-features-ul">
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Semua Fitur Advanced Report</strong></li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Akses Penuh AI Counselor 24/7</strong></li>
-                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Prioritas Konsultasi Psikolog</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-primary" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft);">
-        <div class="container" style="max-width:800px;">
-            <h2 class="section-title" style="text-align:center; margin-bottom:2.5rem;">Pertanyaan Sering Diajukan</h2>
-
-            <div class="faq-item-card">
-                <button class="faq-header" onclick="toggleFaqAccordion(this)">
-                    <span>Berapa lama tes minat bakat ini berlangsung?</span>
-                    <span>+</span>
-                </button>
-                <div class="faq-body">
-                    Tes berlangsung online selama 15–20 menit melalui HP atau laptop. Hasil ringkasan dasar langsung dapat dilihat seketika.
-                </div>
-            </div>
-
-            <div class="faq-item-card">
-                <button class="faq-header" onclick="toggleFaqAccordion(this)">
-                    <span>Apakah alat ukur tes ini tepercaya?</span>
-                    <span>+</span>
-                </button>
-                <div class="faq-body">
-                    Instrumen Better Future mengombinasikan 5 pisau psikologi teruji (RIASEC, MBTI, DISC, VAKS, &amp; 16PF) yang disupervisi oleh psikolog HIMPSI.
-                </div>
-            </div>
-
-            <div class="faq-item-card">
-                <button class="faq-header" onclick="toggleFaqAccordion(this)">
-                    <span>Bagaimana jika anak belum yakin dengan hasilnya?</span>
-                    <span>+</span>
-                </button>
-                <div class="faq-body">
-                    Anak dapat memanfaatkan AI Counselor 24/7 untuk melakukan eksplorasi mendalam tanpa rasa tertekan.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p style="font-family:var(--font-serif); font-size:1.5rem; color:#fff; margin-bottom:0.4rem;">BetterFuture ISCA</p>
-            <p>© 2026 Better Future · Pendampingan Bakat Ilmiah &amp; Masa Depan Anti-Salah Jurusan.</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Web Quiz Modal -->
-    <div id="quizModalOverlay" class="modal-overlay" onclick="closeQuizModal(event)">
-        <div class="quiz-modal-box" onclick="event.stopPropagation()">
-            <span class="close-modal-x" onclick="closeQuizModal()">&times;</span>
-            
-            <div id="quizStep1">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah 1 dari 3</div>
-                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Apa tingkat pendidikan anak Anda saat ini?</h3>
-                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Pilih untuk menyesuaikan instrumen kuis minat bakat.</p>
-                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Kelas 10–12 SMA / SMK</button>
-                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Kelas 7–9 SMP</button>
-                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Mahasiswa (Tingkat Awal)</button>
-            </div>
-
-            <div id="quizStep2" style="display:none;">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah 2 dari 3</div>
-                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Apa kekhawatiran terbesar Anda?</h3>
-                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Pilih yang paling menggambarkan situasi keluarga.</p>
-                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Anak bingung menentukan jurusan kuliah</button>
-                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Orang tua &amp; anak berbeda pendapat pilihan jurusan</button>
-                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Takut anak salah jurusan &amp; putus sekolah</button>
-            </div>
-
-            <div id="quizStep3" style="display:none;">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah Terakhir</div>
-                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Mulai Tes Gratis Sekarang!</h3>
-                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Hasil pemetaan awal akan dikirimkan langsung ke WhatsApp Anda.</p>
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20sudah%20mengisi%20kuis%20web%20dan%20ingin%20mulai%20tes%20gratis" class="btn-primary" style="width:100%; border-radius:0.85rem;">Buka Kuis via WhatsApp</a>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Lightbox Zoom Modal -->
-    <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeFullLightbox()">
-        <img id="lightboxImg" src="" alt="Full Screenshot">
+<!-- ================================================================
+     TICKER STRIP (animated stats)
+     ================================================================ -->
+<div class="ticker-strip">
+    <div class="ticker-track" id="tickerTrack">
+        <div class="ticker-item">
+            <span class="t-num">87%</span>
+            mahasiswa merasa salah jurusan
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">Rp 150 Jt</span>
+            rata-rata kerugian per anak
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">20 mnt</span>
+            cukup untuk petakan bakat anak
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">92,7%</span>
+            tingkat akurasi test
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">19</span>
+            faktor bakat dipetakan sekaligus
+        </div>
+        <span class="ticker-sep">·</span>
+        <!-- Duplicate for seamless loop -->
+        <div class="ticker-item">
+            <span class="t-num">87%</span>
+            mahasiswa merasa salah jurusan
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">Rp 150 Jt</span>
+            rata-rata kerugian per anak
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">20 mnt</span>
+            cukup untuk petakan bakat anak
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">92,7%</span>
+            tingkat akurasi test
+        </div>
+        <span class="ticker-sep">·</span>
+        <div class="ticker-item">
+            <span class="t-num">19</span>
+            faktor bakat dipetakan sekaligus
+        </div>
+        <span class="ticker-sep">·</span>
     </div>
+</div>
 
-    <!-- JavaScript Scripts -->
-    <script>
-        // Trait Simulator Data & Polygon Animation
-        const simDataMap = {
-            social: {
-                points: "170,80 225,110 220,170 170,205 115,165 120,110",
-                list: [
-                    { title: "• Manajer Proyek", salary: "(Rp. 10 Jt - 35 Jt)", desc: "Membutuhkan kemampuan dalam mengorganisir, memimpin, dan menjaga stabilitas tim untuk mencapai target." },
-                    { title: "• Konsultan Manajemen", salary: "(Rp. 12 Jt - 80 Jt)", desc: "Memanfaatkan kemampuan analitis dan persuasif untuk memberikan solusi strategis bagi perusahaan." },
-                    { title: "• Spesialis Sumber Daya Manusia", salary: "(Rp. 8 Jt - 27 Jt)", desc: "Sangat cocok dengan kehangatan berinteraksi dan mengelola dinamika tim." }
-                ]
-            },
-            artistic: {
-                points: "170,100 210,120 235,190 170,175 130,150 140,120",
-                list: [
-                    { title: "• Desainer UX / Komunikasi Visual", salary: "(Rp. 12 Jt - 45 Jt)", desc: "Mengeksplorasi kreativitas visual dan empati pengguna dalam membuat produk digital." },
-                    { title: "• Creative Director", salary: "(Rp. 18 Jt - 75 Jt)", desc: "Mengarahkan strategi visual dan cerita merek secara holistik." },
-                    { title: "• Content Strategist", salary: "(Rp. 9 Jt - 28 Jt)", desc: "Merancang ide konten kreatif berbasis tren industri." }
-                ]
-            },
-            investigative: {
-                points: "170,90 235,85 200,150 170,165 140,160 135,115",
-                list: [
-                    { title: "• Data Scientist / Analis Bisnis", salary: "(Rp. 14 Jt - 60 Jt)", desc: "Menganalisis pola data rumit untuk memprediksi arah pertumbuhan bisnis." },
-                    { title: "• Peneliti Bioteknologi", salary: "(Rp. 11 Jt - 40 Jt)", desc: "Mengembangkan riset ilmiah dan eksplorasi medis berbasis sains." },
-                    { title: "• Dokter Spesialis", salary: "(Rp. 20 Jt - Unlimited)", desc: "Memerlukan ketelitian analitis mendalam dan dedikasi diagnosis tinggi." }
-                ]
-            },
-            enterprising: {
-                points: "170,95 210,115 190,160 170,180 100,195 125,120",
-                list: [
-                    { title: "• Startup Founder / Entrepreneur", salary: "(Rp. 15 Jt - Unlimited)", desc: "Memimpin pergerakan bisnis baru dengan keberanian mengambil risiko terukur." },
-                    { title: "• Business Development Executive", salary: "(Rp. 10 Jt - 42 Jt)", desc: "Membuka peluang kemitraan strategis dan ekspansi pasar." },
-                    { title: "• Diplomat / Negosiator", salary: "(Rp. 15 Jt - Unlimited)", desc: "Memerlukan kemampuan persuasi tinggi dan wawasan geopolitik." }
-                ]
+<!-- ================================================================
+     BAB 01 — MASALAH (Pain Points)
+     ================================================================ -->
+<section class="section" id="masalah">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 01 — Masalah Nyata</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Orang Tua Khawatir.<br>Tapi Tidak Tahu <em>Apa yang Harus Dilakukan.</em>
+        </h2>
+        <p class="section-body reveal reveal-delay-2">
+            Pertanyaan keluarga besar, tekanan sosial, dan biaya kuliah yang besar — semua bisa dicegah dengan satu langkah yang tepat sebelum anak masuk SMA atau kuliah.
+        </p>
+
+        <div class="pain-grid">
+            <div class="pain-card reveal reveal-delay-1">
+                <div class="pain-icon">💸</div>
+                <div class="pain-title">Buang Rp 150 Juta+ sia-sia</div>
+                <p class="pain-desc">Biaya kuliah 4 tahun di jurusan yang salah, ditambah biaya hidup dan waktu yang tak bisa dikembalikan.</p>
+            </div>
+            <div class="pain-card reveal reveal-delay-2">
+                <div class="pain-icon">😰</div>
+                <div class="pain-title">"Anakmu kok drop out, Bu?"</div>
+                <p class="pain-desc">Pertanyaan dari keluarga besar yang paling orang tua takutkan. Malu sosial yang nyata dan terasa berat.</p>
+            </div>
+            <div class="pain-card reveal reveal-delay-3">
+                <div class="pain-icon">🔄</div>
+                <div class="pain-title">Ganti jurusan = buang waktu</div>
+                <p class="pain-desc">Pindah jurusan di tahun ke-2 artinya mulai dari nol. Kehilangan 2 tahun dan ratusan juta rupiah.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 02 — KISAH NYATA (WhatsApp Chat Carousel)
+     ================================================================ -->
+<section class="section section-alt carousel-section" id="kisah-nyata">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 02 — Kisah Nyata Orang Tua</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Percakapan Nyata.<br>Bukan <em>Testimoni Rekayasa.</em>
+        </h2>
+        <p class="section-body reveal reveal-delay-2">
+            Ini adalah screenshot WhatsApp asli dari orang tua yang sudah mencoba Better Future. Mereka berbagi cerita apa adanya.
+        </p>
+
+        <!-- Carousel -->
+        <div class="carousel-wrapper reveal reveal-delay-3" id="carousel">
+            <div class="ca-track" id="caTrack">
+
+                <!-- Slide 1 — 3digit -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">👩</div>
+                        <div>
+                            <div class="wa-name">Bunda – Orang Tua Siswa</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/3 digit.png" alt="WhatsApp chat: Ibu dokter gigi terkejut dengan potensi gaji 3 digit anaknya" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">💡 Insight</div>
+                        <p class="ca-caption-text">"Saya baru tau kalau Manajer Komunikasi bisa sampai dapat 3 digit. Wow. Saya juga mau." — Ibu Dokter Gigi</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 — 5 -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">👩</div>
+                        <div>
+                            <div class="wa-name">Bunda – Orang Tua Siswa</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/5.png" alt="WhatsApp chat: Orang tua terkejut testnya hanya 20 menit dan hasilnya lengkap" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">⏱ Hanya 20 Menit</div>
+                        <p class="ca-caption-text">"Jujur waktunya itu 20 menit kelamaan, tapi hasilnya lengkap sih." — Bunda yang jujur apa adanya</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 — 6 -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">👩</div>
+                        <div>
+                            <div class="wa-name">Bunda – Orang Tua Siswa</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/6.png" alt="WhatsApp chat: Bunda baru tahu anak condong ke DKV bukan Arsitek" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">🎨 Kejutan Bakat</div>
+                        <p class="ca-caption-text">"Baru tau anak saya lebih ke DKV padahal saya pikir dia ke Artistek." — Bunda yang terbuka pikiran</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 — 20 menit -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">👩</div>
+                        <div>
+                            <div class="wa-name">Bunda – Orang Tua Siswa</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/20 menit.png" alt="WhatsApp chat: Perbandingan test 20 menit vs 4-5 jam dan akurasi 92,7%" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">✅ Akurasi 92,7%</div>
+                        <p class="ca-caption-text">"Yang bener mbak? 4 jam? Bagus deh kalian cuman 20 menit. Tapi akurat ga?" — Bunda yang kritis</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 — dr gigi -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">🦷</div>
+                        <div>
+                            <div class="wa-name">Ibu Dokter Gigi</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/dr gigi.png" alt="WhatsApp chat: Ibu dokter gigi yang terbuka dengan pilihan karir lain untuk anaknya" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">💚 Pikiran Terbuka</div>
+                        <p class="ca-caption-text">"Boleh dong. Saya dokter gigi, jadi kepinginnya anak juga jadi dokter juga. Namun saya disini tenang ya..." — Ibu yang mau terbuka</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6 — peta -->
+                <div class="ca-slide">
+                    <div class="wa-header">
+                        <div class="wa-avatar">🗺️</div>
+                        <div>
+                            <div class="wa-name">Bunda – Orang Tua Siswa</div>
+                            <div class="wa-online">💬 Real WhatsApp Chat</div>
+                        </div>
+                    </div>
+                    <div class="ca-img-frame">
+                        <img src="../BF resources/peta.png" alt="WhatsApp chat: Bunda merasa sekarang punya peta jalan masa depan anak" loading="lazy">
+                    </div>
+                    <div class="ca-caption">
+                        <div class="ca-caption-tag">🗺 Peta Masa Depan</div>
+                        <p class="ca-caption-text">"Sekarang jadi lumayan mengerti kemauan anak. Kalau dulu kan kita orang tua cuman bisa berharap dan berdoa, paling ga saat ini kita punya peta jalan masa depan anak." — Bunda yang lega</p>
+                    </div>
+                </div>
+
+            </div><!-- /ca-track -->
+        </div><!-- /carousel-wrapper -->
+
+        <!-- Carousel nav -->
+        <div class="ca-nav reveal">
+            <button class="ca-arrow" id="caPrev" aria-label="Sebelumnya">&#8592;</button>
+            <div class="ca-dots" id="caDots"></div>
+            <button class="ca-arrow" id="caNext" aria-label="Berikutnya">&#8594;</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 03 — HOW IT WORKS
+     ================================================================ -->
+<section class="section" id="cara-kerja">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 03 — Cara Kerja</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Dari <em>Bingung</em> ke<br>Peta Masa Depan — 3 Langkah
+        </h2>
+
+        <div class="steps-row">
+            <div class="step-card reveal reveal-delay-1">
+                <div class="step-number">1</div>
+                <div class="step-title">Mulai Tes Online Gratis</div>
+                <p class="step-desc">Anak mengisi 150+ pertanyaan psikometrik yang dirancang psikolog HIMPSI. Hanya 20 menit. Bisa dari HP.</p>
+            </div>
+            <div class="step-card reveal reveal-delay-2">
+                <div class="step-number">2</div>
+                <div class="step-title">Laporan 19-Faktor Bakat</div>
+                <p class="step-desc">Sistem AI menganalisis 19 dimensi minat & bakat: RIASEC, kecerdasan majemuk, gaya belajar, dan pilihan karir spesifik.</p>
+            </div>
+            <div class="step-card reveal reveal-delay-3">
+                <div class="step-number">3</div>
+                <div class="step-title">Konsultasi Dr. Teguh</div>
+                <p class="step-desc">Psikolog Dr. Teguh Lesmana, M.Psi membaca laporan dan memberikan rekomendasi jurusan + universitas yang cocok.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 04 — RIASEC INTERACTIVE WIDGET
+     ================================================================ -->
+<section class="widget-section" id="simulasi-bakat">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 04 — Coba Simulasi</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Geser Slider — Lihat<br><em>Karir yang Cocok</em> untuk Anakmu
+        </h2>
+        <p class="section-body reveal reveal-delay-2">
+            Ini hanya simulasi cepat. Hasil tes sesungguhnya 10× lebih detail dan mencakup 19 faktor bakat.
+        </p>
+
+        <div class="widget-layout reveal reveal-delay-2">
+            <!-- Sliders -->
+            <div class="trait-grid">
+                <div class="trait-row">
+                    <span class="trait-label">🔧 Realistik</span>
+                    <input type="range" class="trait-slider" data-trait="R" min="0" max="100" value="50">
+                </div>
+                <div class="trait-row">
+                    <span class="trait-label">🔬 Investigatif</span>
+                    <input type="range" class="trait-slider" data-trait="I" min="0" max="100" value="50">
+                </div>
+                <div class="trait-row">
+                    <span class="trait-label">🎨 Artistik</span>
+                    <input type="range" class="trait-slider" data-trait="A" min="0" max="100" value="50">
+                </div>
+                <div class="trait-row">
+                    <span class="trait-label">🤝 Sosial</span>
+                    <input type="range" class="trait-slider" data-trait="S" min="0" max="100" value="50">
+                </div>
+                <div class="trait-row">
+                    <span class="trait-label">💼 Wirausaha</span>
+                    <input type="range" class="trait-slider" data-trait="E" min="0" max="100" value="50">
+                </div>
+                <div class="trait-row">
+                    <span class="trait-label">📋 Konvensional</span>
+                    <input type="range" class="trait-slider" data-trait="C" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <!-- Result panel -->
+            <div class="widget-result" id="widgetResult">
+                <div class="widget-result-title" id="widgetProfile">Profil: Seimbang</div>
+
+                <div id="careerChips">
+                    <span class="career-chip">Geser slider untuk melihat rekomendasi karir...</span>
+                </div>
+
+                <div class="salary-label">
+                    <p>Estimasi gaji awal karir</p>
+                    <div class="salary-range" id="salaryRange">Rp 6–12 juta/bln</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 05 — PROOF NUMBERS
+     ================================================================ -->
+<section class="section section-alt" id="bukti">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 05 — Bukti Nyata</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Angka-Angka yang<br><em>Berbicara Sendiri</em>
+        </h2>
+
+        <div class="proof-grid">
+            <div class="proof-card reveal reveal-delay-1">
+                <div class="proof-num count-up" data-target="87">0</div><div class="proof-num"><span>%</span></div>
+                <div class="proof-label">mahasiswa Indonesia merasa salah jurusan (ICCN, 2024)</div>
+            </div>
+            <div class="proof-card reveal reveal-delay-2">
+                <div class="proof-num">Rp<span> 150 Jt</span></div>
+                <div class="proof-label">kerugian rata-rata per anak akibat salah jurusan + DO</div>
+            </div>
+            <div class="proof-card reveal reveal-delay-3">
+                <div class="proof-num count-up" data-target="92">0</div><div class="proof-num"><span>,7%</span></div>
+                <div class="proof-label">akurasi test Better Future, diverifikasi psikolog HIMPSI</div>
+            </div>
+            <div class="proof-card reveal reveal-delay-4">
+                <div class="proof-num count-up" data-target="20">0</div><div class="proof-num"><span> mnt</span></div>
+                <div class="proof-label">waktu pengerjaan (kompetitor butuh 4–5 jam!)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 06 — PRICING (Decoy Strategy)
+     ================================================================ -->
+<section class="section" id="harga">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 06 — Pilih Paket</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Investasi Terkecil.<br><em>Perlindungan Terbesar.</em>
+        </h2>
+        <p class="section-body reveal reveal-delay-2">
+            Bayangkan Rp 80.000 untuk mencegah Rp 150 juta terbuang sia-sia. Ini bukan biaya — ini investasi masa depan anak.
+        </p>
+
+        <div class="pricing-grid reveal reveal-delay-2">
+
+            <!-- Basic / Free -->
+            <div class="price-card">
+                <div class="price-tier">Basic</div>
+                <div class="price-name">Peta Awal</div>
+                <div class="price-num price-free">Gratis</div>
+                <ul class="price-features">
+                    <li><span class="check">✓</span> Laporan ringkas 5 faktor</li>
+                    <li><span class="check">✓</span> Profil RIASEC dasar</li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Laporan lengkap 19 faktor</span></li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Rekomendasi jurusan</span></li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Konsultasi psikolog</span></li>
+                </ul>
+                <a href="https://wa.me/6281274663887" target="_blank" class="price-cta price-cta-outline">Mulai Gratis</a>
+            </div>
+
+            <!-- Advanced -->
+            <div class="price-card">
+                <div class="price-tier">Advanced</div>
+                <div class="price-name">Peta Lengkap</div>
+                <div class="price-num">Rp <span>80.000</span></div>
+                <ul class="price-features">
+                    <li><span class="check">✓</span> Laporan 19 faktor lengkap</li>
+                    <li><span class="check">✓</span> Rekomendasi jurusan top 5</li>
+                    <li><span class="check">✓</span> Rekomendasi universitas</li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Laporan AI mendalam</span></li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Konsultasi psikolog</span></li>
+                </ul>
+                <a href="https://wa.me/6281274663887" target="_blank" class="price-cta price-cta-outline">Pilih Paket Ini</a>
+            </div>
+
+            <!-- AI Decoy -->
+            <div class="price-card">
+                <div class="price-tier">AI Premium</div>
+                <div class="price-name">Peta AI</div>
+                <div class="price-num">Rp <span>110.000</span></div>
+                <ul class="price-features">
+                    <li><span class="check">✓</span> Semua fitur Advanced</li>
+                    <li><span class="check">✓</span> Laporan AI mendalam</li>
+                    <li><span class="check">✓</span> Analisis kecerdasan majemuk</li>
+                    <li><span class="x-mark">✗</span> <span style="opacity:0.4">Konsultasi Dr. Teguh</span></li>
+                </ul>
+                <a href="https://wa.me/6281274663887" target="_blank" class="price-cta price-cta-outline">Pilih Paket Ini</a>
+            </div>
+
+            <!-- HERO Bundle -->
+            <div class="price-card hero-card">
+                <div class="price-badge">⭐ PALING POPULER</div>
+                <div class="price-tier">Complete Bundle</div>
+                <div class="price-name">Peta + Konsultasi</div>
+                <div class="price-num">Rp <span>120.000</span></div>
+                <ul class="price-features">
+                    <li><span class="check">✓</span> Laporan 19 faktor + AI</li>
+                    <li><span class="check">✓</span> Rekomendasi jurusan & PTN/PTS</li>
+                    <li><span class="check">✓</span> Konsultasi Dr. Teguh (30 mnt)</li>
+                    <li><span class="check">✓</span> Rencana studi 3 tahun</li>
+                    <li><span class="check">✓</span> Akses laporan seumur hidup</li>
+                </ul>
+                <a href="https://wa.me/6281274663887?text=Saya%20mau%20paket%20Complete%20Bundle%20Rp120.000" target="_blank" class="price-cta price-cta-solid">Ambil Bundle Ini 🔥</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     BAB 07 — FAQ
+     ================================================================ -->
+<section class="section section-alt" id="faq">
+    <div class="container">
+        <div class="section-eyebrow reveal">Bab 07 — Pertanyaan Umum</div>
+        <h2 class="section-title-dark reveal reveal-delay-1">
+            Kekhawatiran Orang Tua.<br><em>Jawaban Jujur Kami.</em>
+        </h2>
+
+        <div class="faq-list reveal reveal-delay-2">
+
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false">
+                    Apakah tes ini akurat untuk anak usia 13-17 tahun?
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-body">
+                    <p>Ya. Test ini dirancang khusus untuk siswa SMP-SMA. Pertanyaan disusun oleh Dr. Teguh Lesmana, M.Psi yang telah berpengalaman 15+ tahun di bidang psikologi pendidikan. Akurasi 92,7% sudah divalidasi dengan metodologi peer-review.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false">
+                    Kenapa hanya 20 menit? Apakah terlalu singkat?
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-body">
+                    <p>Tes psikometri modern telah dioptimalkan. Kami fokus pada pemetaan bakat — bukan pengukuran IQ yang butuh 4-5 jam. Waktu singkat justru mencegah kelelahan yang bisa bias hasil. Lihat screenshot nyata dari orang tua di atas — mereka sendiri yang membuktikan hasilnya sangat lengkap.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false">
+                    Bagaimana kalau hasilnya tidak sesuai harapan saya sebagai orang tua?
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-body">
+                    <p>Hasil tes adalah cerminan potensi anak, bukan vonis. Justru di sinilah konsultasi Dr. Teguh sangat membantu — beliau bisa membantu orang tua memahami hasil dan menemukan titik tengah antara minat anak dan ekspektasi keluarga, tanpa konflik.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false">
+                    Apakah data anak saya aman dan privat?
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-body">
+                    <p>100% ya. Data anak hanya diakses oleh tim psikolog kami dan tidak dibagikan ke pihak ketiga manapun. Laporan hanya dikirim ke orang tua yang mendaftar.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false">
+                    Apakah bisa untuk anak yang sudah kelas 12 atau mau SNBT?
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-body">
+                    <p>Sangat bisa! Bahkan lebih kritis untuk anak kelas 12 karena waktunya terbatas. Better Future memberikan rekomendasi jurusan yang cocok dengan kemampuan dan minat — sangat berguna untuk menentukan pilihan di SNBT/SBMPTN maupun jalur mandiri.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     FINAL CTA
+     ================================================================ -->
+<section class="final-cta" id="mulai">
+    <div class="container">
+        <h2 class="final-cta-title reveal">
+            Anak Bunda Punya Bakat Luar Biasa.<br>
+            Sudahkah Bunda<br>
+            <em>Tahu Apa Itu?</em>
+        </h2>
+        <p class="final-cta-sub reveal reveal-delay-1">
+            <strong>20 menit sekarang</strong> bisa mencegah 4 tahun penuh penyesalan dan <strong>Rp 150 juta</strong> terbuang sia-sia. Mulai tes gratis hari ini.
+        </p>
+        <div class="reveal reveal-delay-2">
+            <a href="https://wa.me/6281274663887?text=Halo%2C%20saya%20mau%20tahu%20lebih%20lanjut%20tentang%20tes%20bakat%20anak%20Better%20Future" target="_blank" class="btn-primary-dark" style="font-size:1.15rem; padding:1.2rem 2.5rem;">
+                📲 Mulai Tes Gratis Sekarang →
+            </a>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted);" class="reveal reveal-delay-3">
+            Gratis untuk paket dasar · Tanpa kartu kredit · Chat langsung dengan konsultan
+        </p>
+    </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">Better <em>Future</em> <span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);margin-left:0.5rem;">by ISCA</span></div>
+            <div class="footer-links">
+                <a href="#masalah">Masalah</a>
+                <a href="#kisah-nyata">Kisah Nyata</a>
+                <a href="#cara-kerja">Cara Kerja</a>
+                <a href="#harga">Harga</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <p class="footer-copy">© 2025 Better Future (ISCA). All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ================================================================
+     FLOATING WHATSAPP BUTTON
+     ================================================================ -->
+<a href="https://wa.me/6281274663887?text=Halo%2C%20saya%20mau%20tahu%20lebih%20lanjut%20tentang%20tes%20bakat%20anak%20Better%20Future" target="_blank" class="wa-float" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+    // ---- Navbar scroll ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ---- Scroll Reveal ----
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
             }
-        };
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
 
-        document.querySelectorAll('#simTraitBar .trait-chip').forEach(chip => {
-            chip.addEventListener('click', function() {
-                document.querySelectorAll('#simTraitBar .trait-chip').forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
+    // ---- Animated Count Up ----
+    const countEls = document.querySelectorAll('.count-up');
+    const countObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseInt(el.dataset.target, 10);
+            const dur = 1800;
+            const start = performance.now();
+            const tick = (now) => {
+                const progress = Math.min((now - start) / dur, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(ease * target);
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = target;
+            };
+            requestAnimationFrame(tick);
+            countObs.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countObs.observe(el));
 
-                const simKey = this.dataset.sim;
-                const data = simDataMap[simKey];
-                if (!data) return;
+    // ---- Carousel ----
+    const track    = document.getElementById('caTrack');
+    const prevBtn  = document.getElementById('caPrev');
+    const nextBtn  = document.getElementById('caNext');
+    const dotsWrap = document.getElementById('caDots');
+    const slides   = track.querySelectorAll('.ca-slide');
+    const N = slides.length;
+    let current = 0;
+    let autoTimer;
 
-                document.getElementById('simPolygon').setAttribute('points', data.points);
-                document.getElementById('simCareerContent').innerHTML = data.list.map(item => `
-                    <div class="career-item-row">
-                        <div class="career-title-text">${item.title}</div>
-                        <span class="career-salary-line">${item.salary}</span>
-                        <div class="career-desc-text">${item.desc}</div>
-                    </div>
-                `).join('');
-            });
+    // Build dots
+    for (let i = 0; i < N; i++) {
+        const d = document.createElement('button');
+        d.className = 'ca-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', `Slide ${i + 1}`);
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+    }
+
+    function getSlideWidth() {
+        return slides[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 24);
+    }
+
+    function goTo(idx) {
+        current = (idx + N) % N;
+        track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
+        dotsWrap.querySelectorAll('.ca-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        resetAuto();
+    }
+
+    function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goTo(current + 1), 4500);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Touch / swipe support
+    let touchX = 0;
+    track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+
+    resetAuto();
+    window.addEventListener('resize', () => goTo(current));
+
+    // ---- RIASEC Widget ----
+    const careerDB = {
+        R: { high: ['Teknik Sipil','Teknik Mesin','Arsitek','Pertanian','Kehutanan'], salary: 'Rp 8–25 juta/bln' },
+        I: { high: ['Kedokteran','Peneliti','Data Scientist','Farmasi','Bioteknologi'], salary: 'Rp 12–40 juta/bln' },
+        A: { high: ['DKV','Arsitektur Interior','Musik','Film & TV','Desain Mode'], salary: 'Rp 6–20 juta/bln' },
+        S: { high: ['Psikologi','Pendidikan','Keperawatan','Sosial','Konseling'], salary: 'Rp 5–18 juta/bln' },
+        E: { high: ['Manajemen','Hukum','Komunikasi','Pemasaran','Kewirausahaan'], salary: 'Rp 8–50 juta/bln' },
+        C: { high: ['Akuntansi','Statistika','Keuangan','Administrasi','Perpajakan'], salary: 'Rp 7–22 juta/bln' }
+    };
+
+    const traitSliders = document.querySelectorAll('.trait-slider');
+    const widgetProfile = document.getElementById('widgetProfile');
+    const careerChips   = document.getElementById('careerChips');
+    const salaryRange   = document.getElementById('salaryRange');
+
+    function updateWidget() {
+        const vals = {};
+        traitSliders.forEach(s => { vals[s.dataset.trait] = parseInt(s.value, 10); });
+        const sorted = Object.entries(vals).sort((a, b) => b[1] - a[1]);
+        const top1 = sorted[0][0];
+        const top2 = sorted[1][0];
+        const traitNames = { R:'Realistik', I:'Investigatif', A:'Artistik', S:'Sosial', E:'Wirausaha', C:'Konvensional' };
+
+        widgetProfile.textContent = `Profil: ${traitNames[top1]}-${traitNames[top2]}`;
+
+        const careers = [...careerDB[top1].high, ...careerDB[top2].high.slice(0,2)];
+        careerChips.innerHTML = '';
+        careers.forEach((c, idx) => {
+            const chip = document.createElement('span');
+            chip.className = 'career-chip' + (idx < 3 ? ' highlight' : '');
+            chip.textContent = c;
+            careerChips.appendChild(chip);
         });
 
-        // AI Chat Showcase Prompt Injector
-        function sendDemoChat(msgText) {
-            const chatArea = document.getElementById('chatDemoArea');
-            if (!chatArea) return;
+        salaryRange.textContent = careerDB[top1].salary;
+    }
 
-            const uBubble = document.createElement('div');
-            uBubble.className = 'chat-bubble bubble-parent';
-            uBubble.innerText = msgText;
-            chatArea.appendChild(uBubble);
+    traitSliders.forEach(s => s.addEventListener('input', updateWidget));
+    updateWidget();
 
-            setTimeout(() => {
-                const aiBubble = document.createElement('div');
-                aiBubble.className = 'chat-bubble bubble-ai';
-                aiBubble.innerText = 'AI Counselor siap mendampingi diskusi ini 24/7 berdasarkan data 19-Faktor Student Map anak Ibu.';
-                chatArea.appendChild(aiBubble);
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }, 500);
-        }
-
-        // WhatsApp Carousel Navigation Controls
-        const trackEl = document.getElementById('chatCarouselTrack');
-        const prevBtnEl = document.getElementById('btnPrevSlide');
-        const nextBtnEl = document.getElementById('btnNextSlide');
-        const dotsEl = document.getElementById('chatCarouselDots');
-
-        if (trackEl && dotsEl) {
-            const slides = Array.from(trackEl.children);
-            slides.forEach((_, idx) => {
-                const dot = document.createElement('div');
-                dot.className = 'pagination-dot' + (idx === 0 ? ' active' : '');
-                dot.addEventListener('click', () => {
-                    const w = slides[0].offsetWidth + 24;
-                    trackEl.scrollTo({ left: w * idx, behavior: 'smooth' });
-                });
-                dotsEl.appendChild(dot);
-            });
-
-            const dots = Array.from(dotsEl.children);
-            trackEl.addEventListener('scroll', () => {
-                const w = slides[0].offsetWidth + 24;
-                const activeIdx = Math.round(trackEl.scrollLeft / w);
-                dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
-            });
-
-            if (prevBtnEl) prevBtnEl.addEventListener('click', () => trackEl.scrollBy({ left: -(slides[0].offsetWidth + 24), behavior: 'smooth' }));
-            if (nextBtnEl) nextBtnEl.addEventListener('click', () => trackEl.scrollBy({ left: (slides[0].offsetWidth + 24), behavior: 'smooth' }));
-        }
-
-        // Web Quiz Modal Controls
-        function openQuizModal() {
-            const m = document.getElementById('quizModalOverlay');
-            if (m) m.classList.add('active');
-        }
-        function closeQuizModal(e) {
-            const m = document.getElementById('quizModalOverlay');
-            if (m) m.classList.remove('active');
-        }
-        function nextQuizStep(stepNum) {
-            document.getElementById('quizStep1').style.display = 'none';
-            document.getElementById('quizStep2').style.display = 'none';
-            document.getElementById('quizStep3').style.display = 'none';
-
-            if (stepNum === 2) document.getElementById('quizStep2').style.display = 'block';
-            if (stepNum === 3) document.getElementById('quizStep3').style.display = 'block';
-        }
-
-        // Lightbox Image Zoom
-        function openFullLightbox(src) {
-            const lb = document.getElementById('lightboxOverlay');
-            const img = document.getElementById('lightboxImg');
-            if (lb && img) {
-                img.src = src;
-                lb.classList.add('active');
-            }
-        }
-        function closeFullLightbox() {
-            const lb = document.getElementById('lightboxOverlay');
-            if (lb) lb.classList.remove('active');
-        }
-
-        // FAQ Accordion
-        function toggleFaqAccordion(btn) {
-            const ans = btn.nextElementSibling;
-            const isOpen = ans.classList.contains('open');
-            document.querySelectorAll('.faq-body').forEach(a => a.classList.remove('open'));
-            if (!isOpen) ans.classList.add('open');
-        }
-    </script>
+    // ---- FAQ Accordion ----
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+            btn.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+</script>
 </body>
 </html>
