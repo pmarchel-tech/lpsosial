@@ -3,48 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Better Future (ISCA) — Obsidian Edition</title>
-    <meta name="description" content="Pemetaan 19-Faktor Minat & Bakat Anak untuk Mencegah Rp 150 Jt Biaya Salah Jurusan.">
+    <title>Better Future (ISCA) — Pendampingan Bakat Anak &amp; Anti Salah Jurusan</title>
+    <meta name="description" content="Pemetaan 19-Faktor Minat & Bakat Anak untuk Mencegah Rp 150 Jt Biaya Salah Jurusan & Risiko Drop Out.">
 
-    <!-- Fonts: Instrument Serif + Plus Jakarta Sans -->
+    <!-- Fonts: Playfair Display + Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
     <style>
         /* ============================================================
-           DESIGN ENGINEERING SYSTEM — OBSIDIAN & EMERALD GLASS
+           DESIGN ENGINEERING SYSTEM — PRESTIGE IVORY & ROYAL EMERALD
            ============================================================ */
         :root {
-            --obsidian-dark: #07120e;
-            --obsidian: #0c1a15;
-            --obsidian-card: #12241e;
-            --obsidian-glass: rgba(18, 36, 30, 0.7);
-            
-            --cream-bg: #fcfaf7;
-            --cream-card: #ffffff;
-            --cream-subtle: #f5f0e8;
+            --bg-warm: #fcfaf6;
+            --bg-card: #ffffff;
+            --bg-subtle: #f5f0e8;
 
-            --emerald: #10b981;
-            --emerald-bright: #34d399;
-            --emerald-glow: rgba(16, 185, 129, 0.25);
+            --emerald-deep: #064e3b;
+            --emerald-mid: #047857;
+            --emerald-light: #10b981;
+            --emerald-subtle: #e6f4ed;
 
-            --gold: #f59e0b;
-            --gold-bright: #fbbf24;
-            --gold-glow: rgba(245, 158, 11, 0.25);
+            --gold-main: #d97706;
+            --gold-bright: #f59e0b;
+            --gold-subtle: #fffbeb;
 
-            --crimson: #ef4444;
-            --crimson-bg: rgba(239, 68, 68, 0.12);
+            --crimson-pain: #be123c;
+            --crimson-subtle: #ffe4e6;
 
-            --text-light: #f3f4f6;
-            --text-muted: #9ca3af;
-            --text-dark: #111827;
-            --text-dark-muted: #4b5563;
+            --text-main: #1c2826;
+            --text-body: #475569;
+            --text-light: #64748b;
 
-            --border-glass: rgba(255, 255, 255, 0.12);
-            --border-light: #e5e0d8;
+            --border-soft: #e8e2d8;
+            --border-emerald: rgba(6, 78, 59, 0.15);
 
-            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
 
             /* Emil Kowalski Custom Easing Curves */
@@ -60,8 +55,8 @@
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--obsidian-dark);
-            color: var(--text-light);
+            background-color: var(--bg-warm);
+            color: var(--text-main);
             font-family: var(--font-sans);
             font-size: 16px;
             line-height: 1.6;
@@ -70,294 +65,270 @@
 
         body {
             overflow-x: hidden;
-            background: var(--obsidian-dark);
+            background: var(--bg-warm);
         }
 
         /* Tactile Press State Rule (Emil Kowalski Principle) */
-        button, .btn, .interactive-card, .carousel-nav-btn, .faq-header, .prompt-chip, .trait-chip {
+        button, .btn, .interactive-card, .carousel-arrow, .faq-header, .prompt-chip, .trait-chip {
             touch-action: manipulation;
             transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), border-color 160ms var(--ease-out);
         }
-        button:active, .btn:active, .interactive-card:active, .carousel-nav-btn:active, .faq-header:active, .prompt-chip:active, .trait-chip:active {
-            transform: scale(0.97) !important;
+        button:active, .btn:active, .interactive-card:active, .carousel-arrow:active, .faq-header:active, .prompt-chip:active, .trait-chip:active {
+            transform: scale(0.98) !important;
         }
 
         .container {
             width: 100%;
-            max-width: 1180px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        .section-dark {
-            padding: 6rem 0;
-            background: var(--obsidian);
-            position: relative;
-        }
-
-        .section-light {
-            padding: 6rem 0;
-            background: var(--cream-bg);
-            color: var(--text-dark);
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
+        .section-padding {
+            padding: 5.5rem 0;
         }
 
         /* Typography */
         .serif { font-family: var(--font-serif); }
-        .italic-gold { font-family: var(--font-serif); font-style: italic; color: var(--gold-bright); }
-        .italic-crimson { font-family: var(--font-serif); font-style: italic; color: var(--crimson); }
-        .italic-emerald { font-family: var(--font-serif); font-style: italic; color: var(--emerald-bright); }
+        .italic-crimson { font-family: var(--font-serif); font-style: italic; color: var(--crimson-pain); }
+        .italic-emerald { font-family: var(--font-serif); font-style: italic; color: var(--emerald-deep); }
+        .italic-gold { font-family: var(--font-serif); font-style: italic; color: var(--gold-main); }
 
-        .chapter-tag {
+        .chapter-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
             font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--gold-bright);
+            color: var(--emerald-mid);
+            background: var(--emerald-subtle);
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
             margin-bottom: 1.25rem;
         }
-        .chapter-tag-dark { color: var(--emerald-bright); }
-        .chapter-line { width: 28px; height: 2px; background: currentColor; opacity: 0.6; }
 
-        .heading-h2 {
+        .section-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-            line-height: 1.12;
-            font-weight: 400;
-            margin-bottom: 1.25rem;
+            font-size: clamp(2.3rem, 4.2vw, 3.5rem);
+            line-height: 1.15;
+            font-weight: 600;
+            color: var(--emerald-deep);
+            margin-bottom: 1.15rem;
         }
 
         /* Buttons */
-        .btn-main {
+        .btn-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.65rem;
-            background: linear-gradient(135deg, var(--gold) 0%, #d97706 100%);
+            background: linear-gradient(135deg, var(--gold-main) 0%, #b45309 100%);
             color: #ffffff;
             font-weight: 700;
             font-size: 1rem;
-            padding: 1rem 2rem;
+            padding: 1.05rem 2.2rem;
             border-radius: 100px;
             border: none;
-            box-shadow: 0 8px 24px var(--gold-glow);
+            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.28);
             cursor: pointer;
             text-decoration: none;
         }
         @media (hover: hover) and (pointer: fine) {
-            .btn-main:hover {
+            .btn-primary:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+                box-shadow: 0 12px 30px rgba(217, 119, 6, 0.38);
             }
         }
 
-        .btn-emerald {
-            background: linear-gradient(135deg, var(--emerald) 0%, #059669 100%);
-            box-shadow: 0 8px 24px var(--emerald-glow);
+        .btn-emerald-solid {
+            background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald-mid) 100%);
+            box-shadow: 0 8px 24px rgba(6, 78, 59, 0.25);
         }
 
-        /* Glassmorphism Header Nav */
-        .site-nav {
+        /* Header Navigation */
+        .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
             z-index: 100;
-            background: rgba(7, 18, 14, 0.85);
+            background: rgba(252, 250, 246, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-soft);
             padding: 1rem 0;
         }
-        .nav-inner {
+        .nav-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .logo-text {
+        .brand-logo {
             font-family: var(--font-serif);
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--emerald-deep);
+            display: flex;
+            align-items: baseline;
         }
-        .logo-text span {
+        .brand-logo span {
             font-family: var(--font-sans);
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 800;
-            color: var(--gold-bright);
-            text-transform: uppercase;
+            color: var(--gold-main);
             letter-spacing: 0.12em;
-            margin-left: 0.25rem;
-            vertical-align: super;
+            margin-left: 0.3rem;
+            text-transform: uppercase;
         }
 
         /* ============================================================
-           HERO SECTION (OBSIDIAN GLASS)
+           HERO SECTION (WARM ELEGANT CONSULTATIVE)
            ============================================================ */
-        .hero-wrap {
+        .hero-section {
             position: relative;
-            min-height: 92vh;
-            display: flex;
-            align-items: center;
-            padding-top: 8rem;
-            padding-bottom: 5rem;
-            background: radial-gradient(circle at 80% 20%, rgba(16,185,129,0.15) 0%, rgba(7,18,14,1) 70%);
-            overflow: hidden;
+            padding-top: 8.5rem;
+            padding-bottom: 5.5rem;
+            background: radial-gradient(circle at 90% 10%, rgba(6,78,59,0.06) 0%, rgba(252,250,246,1) 65%);
         }
-        .hero-video-layer {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.35;
-            filter: contrast(1.1) brightness(0.85);
+        .hero-container {
+            max-width: 820px;
         }
-        .hero-glass-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(7,18,14,0.4) 0%, rgba(7,18,14,0.85) 60%, rgba(7,18,14,1) 100%);
-        }
-        .hero-content-box {
-            position: relative;
-            z-index: 2;
-            max-width: 760px;
-        }
-        .hero-subhead {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 0.75rem;
+        .hero-pre-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-body);
+            margin-bottom: 0.85rem;
             display: block;
         }
-        .hero-title {
+        .hero-main-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-            line-height: 1.08;
-            font-weight: 400;
+            font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+            line-height: 1.1;
+            font-weight: 600;
+            color: var(--emerald-deep);
             margin-bottom: 1.5rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
-        .hero-desc {
-            font-size: 1.1rem;
-            line-height: 1.65;
-            color: rgba(255,255,255,0.82);
+        .hero-description {
+            font-size: 1.12rem;
+            line-height: 1.7;
+            color: var(--text-body);
             margin-bottom: 2.25rem;
-            max-width: 620px;
+            max-width: 680px;
         }
 
-        .hero-trust-row {
+        .hero-trust-badges {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
             margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-glass);
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border-soft);
         }
-        .trust-badge {
+        .badge-trust-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.75);
+            gap: 0.55rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--emerald-deep);
         }
-        .trust-badge svg { color: var(--emerald-bright); }
+        .badge-trust-item svg { color: var(--emerald-mid); }
 
         /* ============================================================
-           STAT GRID SECTION
+           STAT COUNTER CARDS
            ============================================================ */
-        .stat-banner {
-            background: var(--obsidian-card);
-            border-top: 1px solid var(--border-glass);
-            border-bottom: 1px solid var(--border-glass);
+        .stat-section {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
             padding: 3.5rem 0;
         }
-        .stat-grid-3 {
+        .stat-3grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.75rem;
         }
         @media (min-width: 768px) {
-            .stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .stat-3grid { grid-template-columns: repeat(3, 1fr); }
         }
-        .stat-card-item {
-            background: var(--obsidian-glass);
-            border: 1px solid var(--border-glass);
+        .stat-card-white {
+            background: var(--bg-warm);
+            border: 1px solid var(--border-soft);
             border-radius: 1.25rem;
             padding: 1.75rem;
             text-align: center;
         }
-        .stat-val {
+        .stat-number {
             font-family: var(--font-serif);
             font-size: 3.2rem;
             line-height: 1;
-            color: var(--emerald-bright);
-            margin-bottom: 0.5rem;
+            color: var(--emerald-deep);
+            margin-bottom: 0.4rem;
         }
 
         /* ============================================================
-           BAB 01 — MASALAH / SALAH JURUSAN
+           BAB 01 — MASALAH NYATA (PAIN POINTS FOR PARENTS)
            ============================================================ */
-        .problem-grid {
+        .pain-3grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
-            margin-top: 3.5rem;
+            margin-top: 3rem;
         }
         @media (min-width: 768px) {
-            .problem-grid { grid-template-columns: repeat(3, 1fr); }
+            .pain-3grid { grid-template-columns: repeat(3, 1fr); }
         }
-        .problem-card {
-            background: var(--cream-card);
-            border: 1px solid var(--border-light);
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             border-radius: 1.5rem;
-            padding: 2.25rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            padding: 2.25rem 1.75rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .problem-card-icon {
-            width: 52px; height: 52px;
+        .pain-icon-box {
+            width: 48px; height: 48px;
             border-radius: 50%;
-            background: var(--crimson-bg);
-            color: var(--crimson);
+            background: var(--crimson-subtle);
+            color: var(--crimson-pain);
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 1.25rem;
         }
 
         /* ============================================================
-           BAB 02 — LIVE STUDENT MAP SIMULATOR (RE-ENGINEERED)
+           BAB 02 — RE-ENGINEERED STUDENT MAP SIMULATOR (LIGHT THEME)
            ============================================================ */
-        .sim-container {
-            background: var(--obsidian-card);
-            border: 1px solid var(--border-glass);
+        .sim-card-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-emerald);
             border-radius: 2rem;
             padding: 2.5rem;
             margin-top: 3rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            box-shadow: 0 16px 45px rgba(6, 78, 59, 0.07);
         }
-        .sim-layout {
+        .sim-grid-layout {
             display: grid;
             grid-template-columns: 1fr;
             gap: 3rem;
             align-items: center;
         }
         @media (min-width: 900px) {
-            .sim-layout { grid-template-columns: 1fr 1fr; }
+            .sim-grid-layout { grid-template-columns: 1fr 1fr; }
         }
 
-        .trait-selector {
+        .trait-chip-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.65rem;
+            gap: 0.6rem;
             margin-bottom: 2rem;
         }
         .trait-chip {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--border-glass);
-            color: var(--text-muted);
+            background: var(--bg-warm);
+            border: 1px solid var(--border-soft);
+            color: var(--text-body);
             padding: 0.55rem 1.1rem;
             border-radius: 100px;
             font-size: 0.85rem;
@@ -365,124 +336,124 @@
             cursor: pointer;
         }
         .trait-chip.active {
-            background: var(--emerald);
+            background: var(--emerald-deep);
             color: #ffffff;
-            border-color: var(--emerald);
-            box-shadow: 0 4px 14px var(--emerald-glow);
+            border-color: var(--emerald-deep);
+            box-shadow: 0 4px 14px rgba(6, 78, 59, 0.25);
         }
 
-        .career-result-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-glass);
+        .career-output-box {
+            background: var(--bg-warm);
+            border: 1px solid var(--border-soft);
             border-radius: 1.25rem;
-            padding: 1.5rem;
+            padding: 1.75rem;
         }
-        .career-row {
+        .career-item-row {
             padding: 1rem 0;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            border-bottom: 1px dashed var(--border-soft);
         }
-        .career-row:last-child { border-bottom: none; }
-        .career-title {
+        .career-item-row:last-child { border-bottom: none; }
+        .career-title-text {
             font-weight: 700;
-            font-size: 1.05rem;
-            color: #ffffff;
+            font-size: 1.08rem;
+            color: var(--emerald-deep);
         }
-        .salary-tag {
+        .career-salary-line {
             display: block;
             font-family: var(--font-sans);
             font-weight: 700;
-            font-size: 0.82rem;
-            color: var(--emerald-bright);
-            margin-top: 0.15rem;
-            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            color: var(--gold-main);
+            margin-top: 0.2rem;
+            margin-bottom: 0.35rem;
         }
-        .career-desc {
+        .career-desc-text {
             font-size: 0.88rem;
-            color: var(--text-muted);
+            color: var(--text-body);
         }
 
         /* ============================================================
-           BAB 03 — AI COUNSELOR INTERACTIVE CHAT SHOWCASE
+           BAB 03 — 24/7 AI COUNSELOR CHAT SHOWCASE
            ============================================================ */
-        .counselor-section-bg {
-            background: radial-gradient(circle at 20% 50%, rgba(16,185,129,0.12) 0%, rgba(7,18,14,1) 80%);
-        }
-        .chat-showcase {
-            background: var(--obsidian-card);
-            border: 1px solid var(--border-glass);
+        .ai-chat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             border-radius: 1.75rem;
             overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 16px 45px rgba(0,0,0,0.05);
+            margin-top: 3rem;
         }
-        .chat-topbar {
-            background: rgba(0,0,0,0.4);
-            padding: 1.2rem 1.5rem;
+        .ai-chat-header {
+            background: var(--emerald-deep);
+            color: #ffffff;
+            padding: 1.25rem 1.75rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            border-bottom: 1px solid var(--border-glass);
         }
-        .chat-body-area {
-            padding: 1.5rem;
+        .ai-chat-body {
+            padding: 1.75rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
             max-height: 380px;
             overflow-y: auto;
+            background: #faf8f5;
         }
         .chat-bubble {
             max-width: 85%;
-            padding: 0.85rem 1.1rem;
-            font-size: 0.88rem;
-            line-height: 1.55;
+            padding: 0.9rem 1.2rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
-        .chat-bubble-user {
-            background: #1b473a;
+        .bubble-parent {
+            background: var(--emerald-deep);
             color: #ffffff;
             align-self: flex-end;
-            border-radius: 1rem 1rem 0.2rem 1rem;
+            border-radius: 1.1rem 1.1rem 0.2rem 1.1rem;
         }
-        .chat-bubble-ai {
-            background: #0f2b23;
-            color: rgba(255,255,255,0.9);
+        .bubble-ai {
+            background: #ffffff;
+            color: var(--text-main);
             align-self: flex-start;
-            border-radius: 1rem 1rem 1rem 0.2rem;
-            border: 1px solid var(--border-glass);
+            border-radius: 1.1rem 1.1rem 1.1rem 0.2rem;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        /* Prompt Suggestions */
-        .prompt-chips-bar {
+        .prompt-chips-container {
             display: flex;
             gap: 0.5rem;
             overflow-x: auto;
             padding: 1rem 1.5rem;
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid var(--border-glass);
+            background: #ffffff;
+            border-top: 1px solid var(--border-soft);
         }
         .prompt-chip {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--border-glass);
-            color: rgba(255,255,255,0.8);
+            background: var(--bg-warm);
+            border: 1px solid var(--border-soft);
+            color: var(--text-body);
             font-size: 0.78rem;
-            padding: 0.4rem 0.85rem;
+            font-weight: 600;
+            padding: 0.45rem 0.95rem;
             border-radius: 100px;
             white-space: nowrap;
             cursor: pointer;
         }
         .prompt-chip:hover {
-            background: var(--emerald);
-            color: #fff;
+            background: var(--emerald-deep);
+            color: #ffffff;
         }
 
         /* ============================================================
-           BAB 04 — WHATSAPP SCREENSHOT CAROUSEL & LIGHTBOX
+           BAB 04 — WHATSAPP EVIDENCE CAROUSEL
            ============================================================ */
-        .carousel-stage {
+        .carousel-wrapper {
             position: relative;
             margin-top: 3rem;
             width: 100%;
         }
-        .carousel-viewport {
+        .carousel-track-container {
             display: flex;
             gap: 1.5rem;
             overflow-x: auto;
@@ -491,85 +462,85 @@
             padding: 0.5rem 0.25rem 1.5rem;
             scrollbar-width: none;
         }
-        .carousel-viewport::-webkit-scrollbar { display: none; }
+        .carousel-track-container::-webkit-scrollbar { display: none; }
 
-        .carousel-card {
+        .carousel-slide-card {
             flex: 0 0 100%;
             max-width: 100%;
             scroll-snap-align: center;
-            background: var(--cream-card);
-            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             border-radius: 1.25rem;
             padding: 0.75rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
         }
         @media (min-width: 640px) {
-            .carousel-card { flex: 0 0 calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
+            .carousel-slide-card { flex: 0 0 calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
         }
         @media (min-width: 1024px) {
-            .carousel-card { flex: 0 0 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem); }
+            .carousel-slide-card { flex: 0 0 calc(33.333% - 1rem); max-width: calc(33.333% - 1rem); }
         }
 
-        .img-container-frame {
+        .img-frame-box {
             width: 100%;
             border-radius: 0.85rem;
             overflow: hidden;
             background: #000000;
             cursor: pointer;
         }
-        .img-container-frame img {
+        .img-frame-box img {
             width: 100%; height: auto; display: block; object-fit: contain;
             transition: transform 300ms var(--ease-out);
         }
-        .img-container-frame:hover img { transform: scale(1.02); }
+        .img-frame-box:hover img { transform: scale(1.02); }
 
-        .nav-arrow {
+        .carousel-arrow {
             position: absolute;
             top: 50%; transform: translateY(-50%);
             width: 48px; height: 48px;
             border-radius: 50%;
-            background: var(--cream-card);
-            color: var(--text-dark);
-            border: 1px solid var(--border-light);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: var(--bg-card);
+            color: var(--emerald-deep);
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; z-index: 10;
         }
-        .nav-arrow.left { left: -22px; }
-        .nav-arrow.right { right: -22px; }
+        .carousel-arrow.left { left: -22px; }
+        .carousel-arrow.right { right: -22px; }
         @media (max-width: 640px) {
-            .nav-arrow.left { left: 4px; }
-            .nav-arrow.right { right: 4px; }
+            .carousel-arrow.left { left: 4px; }
+            .carousel-arrow.right { right: 4px; }
         }
 
-        .dot-pagination {
+        .pagination-dots {
             display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem;
         }
-        .dot-item {
-            width: 8px; height: 8px; border-radius: 50%; background: var(--border-light); cursor: pointer;
+        .pagination-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: var(--border-soft); cursor: pointer;
             transition: background 250ms, width 250ms;
         }
-        .dot-item.active { background: var(--emerald); width: 26px; border-radius: 100px; }
+        .pagination-dot.active { background: var(--emerald-deep); width: 26px; border-radius: 100px; }
 
         /* ============================================================
            BAB 05 — DECOY PRICING GRID (4 TIERS)
            ============================================================ */
-        .pricing-4grid {
+        .pricing-4grid-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
             margin-top: 3.5rem;
         }
         @media (min-width: 640px) {
-            .pricing-4grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-4grid-container { grid-template-columns: repeat(2, 1fr); }
         }
         @media (min-width: 1100px) {
-            .pricing-4grid { grid-template-columns: repeat(4, 1fr); }
+            .pricing-4grid-container { grid-template-columns: repeat(4, 1fr); }
         }
 
-        .price-box {
-            background: var(--cream-card);
-            border: 1px solid var(--border-light);
+        .price-card-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             border-radius: 1.5rem;
             padding: 2.25rem 1.5rem;
             display: flex;
@@ -580,131 +551,131 @@
             transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
         }
         @media (hover: hover) and (pointer: fine) {
-            .price-box:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
+            .price-card-box:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
         }
 
-        .price-box.target-hero {
-            border: 2px solid var(--gold-bright);
+        .price-card-box.target-hero {
+            border: 2px solid var(--gold-main);
             background: #fffdfa;
-            box-shadow: 0 14px 40px rgba(245, 158, 11, 0.18);
+            box-shadow: 0 14px 40px rgba(217, 119, 6, 0.18);
         }
-        .badge-target {
+        .hero-badge-pill {
             position: absolute;
             top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--gold-bright); color: var(--text-dark);
+            background: var(--gold-main); color: #ffffff;
             font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
             padding: 0.35rem 0.95rem; border-radius: 100px;
         }
 
-        .price-box.decoy-tier {
+        .price-card-box.decoy-tier {
             background: #faf8f5;
             opacity: 0.88;
         }
 
-        .price-head {
+        .price-title-text {
             font-family: var(--font-serif);
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
+            font-size: 1.65rem;
+            color: var(--emerald-deep);
+            margin-bottom: 0.2rem;
         }
-        .price-tag {
+        .price-num-tag {
             font-family: var(--font-serif);
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--emerald-deep);
             margin: 1.25rem 0;
         }
 
-        .price-features-list {
+        .price-features-ul {
             list-style: none;
             margin-bottom: 2rem;
             font-size: 0.88rem;
-            color: var(--text-dark-muted);
+            color: var(--text-body);
         }
-        .price-features-list li {
+        .price-features-ul li {
             padding: 0.4rem 0;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
         }
-        .price-features-list svg { color: var(--emerald); flex-shrink: 0; margin-top: 0.2rem; }
+        .price-features-ul svg { color: var(--emerald-mid); flex-shrink: 0; margin-top: 0.2rem; }
 
         /* ============================================================
            INTERACTIVE WEB QUIZ MODAL & LIGHTBOX
            ============================================================ */
-        .modal-backdrop {
+        .modal-overlay {
             display: none;
             position: fixed;
             z-index: 9999;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(7, 18, 14, 0.88);
+            background: rgba(6, 78, 59, 0.6);
             backdrop-filter: blur(12px);
             align-items: center; justify-content: center;
             padding: 1.5rem;
             opacity: 0;
             transition: opacity 200ms var(--ease-out);
         }
-        .modal-backdrop.active {
+        .modal-overlay.active {
             display: flex;
             opacity: 1;
         }
-        .quiz-card-modal {
-            background: var(--cream-card);
-            color: var(--text-dark);
+        .quiz-modal-box {
+            background: var(--bg-card);
+            color: var(--text-main);
             border-radius: 1.75rem;
             max-width: 520px;
             width: 100%;
             padding: 2.5rem;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-            transform: scale(0.95);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+            transform: scale(0.96);
             transition: transform 250ms var(--ease-out);
             position: relative;
         }
-        .modal-backdrop.active .quiz-card-modal {
+        .modal-overlay.active .quiz-modal-box {
             transform: scale(1);
         }
-        .modal-close-btn {
+        .close-modal-x {
             position: absolute;
             top: 1.25rem; right: 1.5rem;
-            font-size: 1.8rem; cursor: pointer; color: var(--text-dark-muted);
+            font-size: 1.8rem; cursor: pointer; color: var(--text-light);
         }
 
-        .quiz-option-btn {
+        .quiz-step-btn {
             width: 100%;
-            padding: 1rem 1.25rem;
+            padding: 1.05rem 1.25rem;
             margin-bottom: 0.75rem;
-            background: var(--cream-subtle);
-            border: 1px solid var(--border-light);
+            background: var(--bg-warm);
+            border: 1px solid var(--border-soft);
             border-radius: 0.85rem;
             text-align: left;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--emerald-deep);
             cursor: pointer;
         }
-        .quiz-option-btn:hover {
-            background: var(--emerald);
+        .quiz-step-btn:hover {
+            background: var(--emerald-deep);
             color: #ffffff;
-            border-color: var(--emerald);
+            border-color: var(--emerald-deep);
         }
 
-        /* Lightbox Image View */
-        .lightbox-view {
+        /* Lightbox Image Zoom */
+        .lightbox-overlay {
             display: none;
             position: fixed;
             z-index: 10000;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.88);
             backdrop-filter: blur(10px);
             align-items: center; justify-content: center;
             padding: 1.5rem;
         }
-        .lightbox-view.active { display: flex; }
-        .lightbox-view img { max-width: 92%; max-height: 90vh; border-radius: 0.75rem; }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-overlay img { max-width: 92%; max-height: 90vh; border-radius: 0.75rem; }
 
         /* FAQ Accordion */
-        .faq-card {
-            background: var(--cream-card);
-            border: 1px solid var(--border-light);
+        .faq-item-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             border-radius: 1.25rem;
             margin-bottom: 0.85rem;
             overflow: hidden;
@@ -712,199 +683,184 @@
         .faq-header {
             width: 100%; padding: 1.35rem 1.5rem;
             background: none; border: none; text-align: left;
-            font-family: var(--font-serif); font-size: 1.3rem; color: var(--text-dark);
+            font-family: var(--font-serif); font-size: 1.3rem; color: var(--emerald-deep);
             display: flex; justify-content: space-between; align-items: center;
             cursor: pointer;
         }
-        .faq-answer {
-            padding: 0 1.5rem 1.35rem; font-size: 0.95rem; color: var(--text-dark-muted);
+        .faq-body {
+            padding: 0 1.5rem 1.35rem; font-size: 0.95rem; color: var(--text-body);
             line-height: 1.65; display: none;
         }
-        .faq-answer.open { display: block; }
+        .faq-body.open { display: block; }
 
         footer {
-            background: var(--obsidian-dark);
-            color: rgba(255,255,255,0.6);
+            background: var(--emerald-deep);
+            color: rgba(255,255,255,0.75);
             padding: 3.5rem 0;
             text-align: center;
             font-size: 0.88rem;
-            border-top: 1px solid var(--border-glass);
         }
     </style>
 </head>
 <body>
 
-    <!-- Glass Header -->
-    <nav class="site-nav">
-        <div class="container nav-inner">
-            <div class="logo-text">BetterFuture<span>ISCA</span></div>
-            <button class="btn-main" onclick="openQuizModal()" style="padding:0.6rem 1.3rem; font-size:0.85rem;">Mulai Kuis Gratis</button>
+    <!-- Glass Header Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="brand-logo">BetterFuture<span>ISCA</span></div>
+            <button class="btn-primary" onclick="openQuizModal()" style="padding:0.6rem 1.3rem; font-size:0.85rem;">Mulai Kuis Gratis</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-wrap">
-        <video class="hero-video-layer" autoplay loop muted playsinline poster="BF resources/Create_a_cinematic_medium_wide.mp4">
-            <source src="BF resources/Create_a_cinematic_medium_wide.mp4" type="video/mp4">
-        </video>
-        <div class="hero-glass-overlay"></div>
-        
-        <div class="container">
-            <div class="hero-content-box">
-                <span class="hero-subhead">Lebaran nanti, takut ada yang nanya:</span>
-                <h1 class="hero-title italic-crimson">"Anak kamu putus kuliah ya?"</h1>
-                <p class="hero-desc">
-                    Anak kita tidak akan PUTUS KULIAH kalau sesuai dengan minat dan bakatnya. Jangan pikir panjang "Ambil tes sekarang".
-                </p>
-                <button class="btn-main" onclick="openQuizModal()" style="font-size:1.05rem; padding:1.1rem 2.4rem;">
-                    Ambil Tes Gratis di Web Sekarang
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
+    <!-- Hero Section (Warm Consultative Elegance) -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <span class="hero-pre-text">Lebaran nanti, takut ada yang nanya:</span>
+            <h1 class="hero-main-title italic-crimson">"Anak kamu putus kuliah ya?"</h1>
+            <p class="hero-description">
+                Anak kita tidak akan PUTUS KULIAH kalau sesuai dengan minat dan bakatnya. Jangan pikir panjang "Ambil tes sekarang".
+            </p>
+            
+            <button class="btn-primary" onclick="openQuizModal()" style="font-size:1.05rem; padding:1.15rem 2.5rem;">
+                Ambil Tes Gratis di Web Sekarang
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
 
-                <div class="hero-trust-row">
-                    <div class="trust-badge">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Disupervisi Psikolog HIMPSI
-                    </div>
-                    <div class="trust-badge">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Analisa 19-Faktor Psikologi
-                    </div>
-                    <div class="trust-badge">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Garansi 100% Bebas Risiko
-                    </div>
+            <div class="hero-trust-badges">
+                <div class="badge-trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Disupervisi Psikolog HIMPSI
+                </div>
+                <div class="badge-trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Analisa 19-Faktor Psikologi
+                </div>
+                <div class="badge-trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Garansi 100% Bebas Risiko
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stat Counter Banner -->
-    <div class="stat-banner">
+    <!-- Stat Counter Section -->
+    <section class="stat-section">
         <div class="container">
-            <div class="stat-grid-3">
-                <div class="stat-card-item">
-                    <div class="stat-val">87%</div>
-                    <p style="font-size:0.9rem; color:var(--text-muted);">Mahasiswa Indonesia terbukti salah jurusan akibat pemilihan tanpa asesmen bakat.</p>
+            <div class="stat-3grid">
+                <div class="stat-card-white">
+                    <div class="stat-number">87%</div>
+                    <p style="font-size:0.9rem; color:var(--text-body);">Mahasiswa Indonesia terbukti salah jurusan akibat memilih tanpa asesmen psikologi bakat.</p>
                 </div>
-                <div class="stat-card-item">
-                    <div class="stat-val">Rp 150 Jt+</div>
-                    <p style="font-size:0.9rem; color:var(--text-muted);">Uang kuliah &amp; waktu 4 tahun terbuang jika anak drop-out di tengah jalan.</p>
+                <div class="stat-card-white">
+                    <div class="stat-number">Rp 150 Jt+</div>
+                    <p style="font-size:0.9rem; color:var(--text-body);">Uang kuliah &amp; waktu 4 tahun terbuang jika anak memutuskan drop-out di tengah jalan.</p>
                 </div>
-                <div class="stat-card-item">
-                    <div class="stat-val">19 Faktor</div>
-                    <p style="font-size:0.9rem; color:var(--text-muted);">Analisa ilmiah RIASEC, MBTI, DISC, VAKS, &amp; 16PF untuk jurusan anti-gagal.</p>
+                <div class="stat-card-white">
+                    <div class="stat-number">19 Faktor</div>
+                    <p style="font-size:0.9rem; color:var(--text-body);">Analisa ilmiah komprehensif RIASEC, MBTI, DISC, VAKS, &amp; 16PF untuk pilihan jurusan anti-gagal.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Bab 01: Reality Check -->
-    <section class="section-light">
+    <!-- Bab 01: Reality Check for Parents -->
+    <section class="section-padding" style="background:var(--bg-warm);">
         <div class="container">
-            <div class="chapter-tag">
-                <em>Bab 01</em>
-                <div class="chapter-line"></div>
-                <span>Masalah Nyata</span>
-            </div>
-            <h2 class="heading-h2">
+            <span class="chapter-pill">Bab 01 — Masalah Nyata Orang Tua</span>
+            <h2 class="section-title">
                 Jangan Biarkan Anak Menyesal di <span class="italic-crimson">Tengah Jalan.</span>
             </h2>
-            <p style="max-width:560px; color:var(--text-dark-muted);">
-                Kuliah salah jurusan bukan hanya soal IPK turun — ini mengancam masa depan, menghancurkan kepercayaan diri anak, dan menguras finansial keluarga.
+            <p style="max-width:580px; color:var(--text-body);">
+                Kuliah salah jurusan bukan hanya soal nilai IPK — ini mengancam masa depan karir, menghancurkan kepercayaan diri anak, dan menguras finansial keluarga.
             </p>
 
-            <div class="problem-grid">
-                <div class="problem-card">
+            <div class="pain-3grid">
+                <div class="pain-card">
                     <div>
-                        <div class="problem-card-icon">⚡</div>
-                        <h3 class="serif" style="font-size:1.6rem; color:var(--text-dark); margin-bottom:0.6rem;">Perang di Meja Makan</h3>
-                        <p style="font-size:0.92rem; color:var(--text-dark-muted);">Orang tua menginginkan jurusan yang aman, namun anak merasa dipaksa dan tidak dipahami minat aslinya.</p>
+                        <div class="pain-icon-box">⚡</div>
+                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Perang di Meja Makan</h3>
+                        <p style="font-size:0.92rem; color:var(--text-body);">Orang tua menginginkan jurusan yang 'aman', namun anak merasa dipaksa dan minat aslinya tidak pernah dipahami.</p>
                     </div>
                 </div>
-                <div class="problem-card">
+                <div class="pain-card">
                     <div>
-                        <div class="problem-card-icon">💸</div>
-                        <h3 class="serif" style="font-size:1.6rem; color:var(--text-dark); margin-bottom:0.6rem;">Ratusan Juta Terbuang</h3>
-                        <p style="font-size:0.92rem; color:var(--text-dark-muted);">Uang pangkal &amp; SPP semester terbuang sia-sia saat anak memutuskan berhenti kuliah di pertengahan jalan.</p>
+                        <div class="pain-icon-box">💸</div>
+                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Ratusan Juta Melayang</h3>
+                        <p style="font-size:0.92rem; color:var(--text-body);">Uang gedung &amp; SPP tiap semester terbuang sia-sia saat anak memutuskan tidak mau melanjutkan kuliahnya.</p>
                     </div>
                 </div>
-                <div class="problem-card">
+                <div class="pain-card">
                     <div>
-                        <div class="problem-card-icon">🙈</div>
-                        <h3 class="serif" style="font-size:1.6rem; color:var(--text-dark); margin-bottom:0.6rem;">Anxiets saat Arisan Keluarga</h3>
-                        <p style="font-size:0.92rem; color:var(--text-dark-muted);">Perasaan cemas saat keluarga besar atau kerabat menanyakan kepastian jurusan dan masa depan anak.</p>
+                        <div class="pain-icon-box">🙈</div>
+                        <h3 class="serif" style="font-size:1.55rem; color:var(--emerald-deep); margin-bottom:0.6rem;">Cemas saat Arisan &amp; Lebaran</h3>
+                        <p style="font-size:0.92rem; color:var(--text-body);">Perasaan cemas saat keluarga besar atau kerabat menanyakan kepastian jurusan dan kelanjutan studi anak.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bab 02: Interactive Student Map Simulator -->
-    <section class="section-dark">
+    <!-- Bab 02: Interactive Student Map Simulator (The Solution) -->
+    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);">
         <div class="container">
-            <div class="chapter-tag chapter-tag-dark">
-                <em>Bab 02</em>
-                <div class="chapter-line"></div>
-                <span>Solusi Ilmiah</span>
-            </div>
-            <h2 class="heading-h2" style="color:#fff;">
+            <span class="chapter-pill">Bab 02 — Solusi Ilmiah Better Future</span>
+            <h2 class="section-title">
                 Analisa 19 Faktor Minat Bakat &amp; <span class="italic-emerald">Peta Jurusan Anti-Gagal.</span>
             </h2>
-            <p style="max-width:600px; color:var(--text-muted);">
-                Simulasikan langsung Student Map di bawah ini. Klik dimensi bakat dominan anak Anda dan perhatikan bagaimana RIASEC Radar Chart &amp; Proyeksi Karir memperbarui datanya secara real-time!
+            <p style="max-width:620px; color:var(--text-body);">
+                Coba simulasikan Student Map di bawah ini. Klik dimensi bakat dominan anak Anda dan perhatikan bagaimana RIASEC Radar Chart &amp; Proyeksi Karir memperbarui datanya secara real-time!
             </p>
 
-            <div class="sim-container">
-                <div class="trait-selector" id="simTraitBar">
+            <div class="sim-card-wrapper">
+                <div class="trait-chip-bar" id="simTraitBar">
                     <button class="trait-chip active" data-sim="social">Social (S) - 91%</button>
                     <button class="trait-chip" data-sim="artistic">Artistic (A) - 95%</button>
                     <button class="trait-chip" data-sim="investigative">Investigative (I) - 88%</button>
                     <button class="trait-chip" data-sim="enterprising">Enterprising (E) - 82%</button>
                 </div>
 
-                <div class="sim-layout">
-                    <!-- SVG Radar -->
+                <div class="sim-grid-layout">
+                    <!-- SVG Radar Chart -->
                     <div style="text-align:center;">
                         <svg viewBox="0 0 340 250" style="max-width:320px; width:100%; height:auto;">
-                            <polygon points="170,68 232,104 232,176 170,212 108,176 108,104" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-                            <polygon points="170,92 211,116 211,164 170,188 129,164 129,116" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                            <line x1="170" y1="140" x2="170" y2="68" stroke="rgba(255,255,255,0.2)"/>
-                            <line x1="170" y1="140" x2="232" y2="104" stroke="rgba(255,255,255,0.2)"/>
-                            <line x1="170" y1="140" x2="232" y2="176" stroke="rgba(255,255,255,0.2)"/>
-                            <line x1="170" y1="140" x2="170" y2="212" stroke="rgba(255,255,255,0.2)"/>
-                            <line x1="170" y1="140" x2="108" y2="176" stroke="rgba(255,255,255,0.2)"/>
-                            <line x1="170" y1="140" x2="108" y2="104" stroke="rgba(255,255,255,0.2)"/>
+                            <polygon points="170,68 232,104 232,176 170,212 108,176 108,104" fill="none" stroke="rgba(6,78,59,0.15)" stroke-width="1.5"/>
+                            <polygon points="170,92 211,116 211,164 170,188 129,164 129,116" fill="none" stroke="rgba(6,78,59,0.1)" stroke-width="1"/>
+                            <line x1="170" y1="140" x2="170" y2="68" stroke="rgba(6,78,59,0.2)"/>
+                            <line x1="170" y1="140" x2="232" y2="104" stroke="rgba(6,78,59,0.2)"/>
+                            <line x1="170" y1="140" x2="232" y2="176" stroke="rgba(6,78,59,0.2)"/>
+                            <line x1="170" y1="140" x2="170" y2="212" stroke="rgba(6,78,59,0.2)"/>
+                            <line x1="170" y1="140" x2="108" y2="176" stroke="rgba(6,78,59,0.2)"/>
+                            <line x1="170" y1="140" x2="108" y2="104" stroke="rgba(6,78,59,0.2)"/>
 
-                            <polygon id="simPolygon" points="170,80 225,110 220,170 170,205 115,165 120,110" fill="rgba(16, 185, 129, 0.3)" stroke="#34d399" stroke-width="2.5" style="transition: all 400ms var(--ease-out);"/>
+                            <polygon id="simPolygon" points="170,80 225,110 220,170 170,205 115,165 120,110" fill="rgba(4, 120, 87, 0.25)" stroke="#047857" stroke-width="2.5" style="transition: all 400ms var(--ease-out);"/>
 
-                            <text x="170" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Realistic (R)</text>
-                            <text x="244" y="102" text-anchor="start" font-size="11" font-weight="700" fill="#fff">Investigative (I)</text>
-                            <text x="244" y="182" text-anchor="start" font-size="11" font-weight="700" fill="#fff">Artistic (A)</text>
-                            <text x="170" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Social (S)</text>
-                            <text x="96" y="182" text-anchor="end" font-size="11" font-weight="700" fill="#fff">Enterprising (E)</text>
-                            <text x="96" y="102" text-anchor="end" font-size="11" font-weight="700" fill="#fff">Conventional (C)</text>
+                            <text x="170" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#064e3b">Realistic (R)</text>
+                            <text x="244" y="102" text-anchor="start" font-size="11" font-weight="700" fill="#064e3b">Investigative (I)</text>
+                            <text x="244" y="182" text-anchor="start" font-size="11" font-weight="700" fill="#064e3b">Artistic (A)</text>
+                            <text x="170" y="228" text-anchor="middle" font-size="11" font-weight="700" fill="#064e3b">Social (S)</text>
+                            <text x="96" y="182" text-anchor="end" font-size="11" font-weight="700" fill="#064e3b">Enterprising (E)</text>
+                            <text x="96" y="102" text-anchor="end" font-size="11" font-weight="700" fill="#064e3b">Conventional (C)</text>
                         </svg>
                     </div>
 
                     <!-- Career Output List -->
-                    <div class="career-result-box">
-                        <h4 class="serif" style="font-size:1.5rem; color:#fff; margin-bottom:1rem;">Tujuan Karir &amp; Proyeksi Gaji</h4>
+                    <div class="career-output-box">
+                        <h4 class="serif" style="font-size:1.5rem; color:var(--emerald-deep); margin-bottom:1rem;">Tujuan Karir &amp; Proyeksi Gaji</h4>
                         <div id="simCareerContent">
-                            <div class="career-row">
-                                <div class="career-title">• Manajer Proyek</div>
-                                <span class="salary-tag">(Rp. 10 Jt - 35 Jt)</span>
-                                <div class="career-desc">Membutuhkan kemampuan dalam mengorganisir, memimpin, dan menjaga stabilitas tim untuk mencapai target.</div>
+                            <div class="career-item-row">
+                                <div class="career-title-text">• Manajer Proyek</div>
+                                <span class="career-salary-line">(Rp. 10 Jt - 35 Jt)</span>
+                                <div class="career-desc-text">Membutuhkan kemampuan dalam mengorganisir, memimpin, dan menjaga stabilitas tim untuk mencapai target.</div>
                             </div>
-                            <div class="career-row">
-                                <div class="career-title">• Konsultan Manajemen</div>
-                                <span class="salary-tag">(Rp. 12 Jt - 80 Jt)</span>
-                                <div class="career-desc">Memanfaatkan kemampuan analitis dan persuasif untuk memberikan solusi strategis bagi perusahaan.</div>
+                            <div class="career-item-row">
+                                <div class="career-title-text">• Konsultan Manajemen</div>
+                                <span class="career-salary-line">(Rp. 12 Jt - 80 Jt)</span>
+                                <div class="career-desc-text">Memanfaatkan kemampuan analitis dan persuasif untuk memberikan solusi strategis bagi perusahaan.</div>
                             </div>
-                            <div class="career-row">
-                                <div class="career-title">• Spesialis Sumber Daya Manusia</div>
-                                <span class="salary-tag">(Rp. 8 Jt - 27 Jt)</span>
-                                <div class="career-desc">Sangat cocok dengan kehangatan berinteraksi dan mengelola dinamika tim.</div>
+                            <div class="career-item-row">
+                                <div class="career-title-text">• Spesialis Sumber Daya Manusia</div>
+                                <span class="career-salary-line">(Rp. 8 Jt - 27 Jt)</span>
+                                <div class="career-desc-text">Sangat cocok dengan kehangatan berinteraksi dan mengelola dinamika tim.</div>
                             </div>
                         </div>
                     </div>
@@ -914,39 +870,35 @@
     </section>
 
     <!-- Bab 03: 24/7 AI Counselor Live Interactive Showcase -->
-    <section class="section-dark counselor-section-bg">
+    <section class="section-padding" style="background:var(--bg-warm);">
         <div class="container">
-            <div style="max-width:640px; margin-bottom:3rem;">
-                <div class="chapter-tag chapter-tag-dark">
-                    <em>Bab 03</em>
-                    <div class="chapter-line"></div>
-                    <span>AI Counselor 24/7</span>
-                </div>
-                <h2 class="heading-h2" style="color:#fff;">
+            <div style="max-width:640px; margin-bottom:2.5rem;">
+                <span class="chapter-pill">Bab 03 — AI Counselor 24/7</span>
+                <h2 class="section-title">
                     Konsultan Karir dalam Genggaman, <span class="italic-gold">Bebas Penghakiman.</span>
                 </h2>
-                <p style="color:var(--text-muted); font-size:1rem;">
-                    Anak sering kali lebih jujur berdiskusi dengan AI yang netral daripada orang tua. Coba simulasi percakapan di bawah ini:
+                <p style="color:var(--text-body); font-size:1rem;">
+                    Anak sering kali lebih terbuka berdiskusi dengan AI yang netral daripada dengan orang tua. Coba simulasi percakapan di bawah ini:
                 </p>
             </div>
 
-            <div class="chat-showcase">
-                <div class="chat-topbar">
-                    <div style="width:36px; height:36px; border-radius:50%; background:var(--emerald); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">BF</div>
+            <div class="ai-chat-box">
+                <div class="ai-chat-header">
+                    <div style="width:38px; height:38px; border-radius:50%; background:var(--gold-main); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">BF</div>
                     <div>
-                        <div style="font-weight:700; color:#fff; font-size:0.9rem;">AI Counselor — Better Future</div>
-                        <div style="font-size:0.72rem; color:var(--emerald-bright);">Online 24/7 · Terintegrasi Student Map</div>
+                        <div style="font-weight:700; color:#fff; font-size:0.95rem;">AI Counselor — Better Future</div>
+                        <div style="font-size:0.75rem; color:rgba(255,255,255,0.85);">Online 24/7 · Terintegrasi Student Map</div>
                     </div>
                 </div>
 
-                <div class="chat-body-area" id="chatDemoArea">
-                    <div class="chat-bubble chat-bubble-user">Gimana ya jawab keluarga kalau ditanya anak kuliah di mana? Anak saya masih bingung jurusan...</div>
-                    <div class="chat-bubble chat-bubble-ai">Tenang, Bu. Dari Student Map Dika, kekuatan utamanya ada di Sosial (91) dan Minat Kreatif (95). Anak Ibu tidak bingung — dia hanya belum dipetakan secara ilmiah.</div>
-                    <div class="chat-bubble chat-bubble-ai">Rekomendasi kami: Desain Komunikasi Visual jalur UX. Proyeksi gaji awal Rp 12 Jt - 25 Jt &amp; pertumbuhan industri +23%.</div>
+                <div class="ai-chat-body" id="chatDemoArea">
+                    <div class="chat-bubble bubble-parent">Gimana ya jawab keluarga kalau ditanya anak kuliah di mana? Anak saya masih bingung jurusan...</div>
+                    <div class="chat-bubble bubble-ai">Tenang, Bu. Dari Student Map Dika, kekuatan utamanya ada di Sosial (91) dan Minat Kreatif (95). Anak Ibu tidak bingung — dia hanya belum dipetakan secara ilmiah.</div>
+                    <div class="chat-bubble bubble-ai">Rekomendasi kami: Desain Komunikasi Visual jalur UX. Proyeksi gaji awal Rp 12 Jt - 25 Jt &amp; pertumbuhan industri +23%.</div>
                 </div>
 
-                <div class="prompt-chips-bar">
-                    <span style="font-size:0.75rem; color:var(--text-muted); align-self:center;">Coba tanya:</span>
+                <div class="prompt-chips-container">
+                    <span style="font-size:0.75rem; color:var(--text-light); align-self:center;">Coba tanya:</span>
                     <button class="prompt-chip" onclick="sendDemoChat('Bisa bantu draf kalimat jawaban buat keluarga besar saat Lebaran?')">"Draft jawaban Lebaran?"</button>
                     <button class="prompt-chip" onclick="sendDemoChat('Apa bedanya tes ini dengan tes IQ biasa?')">"Bedanya dengan tes IQ?"</button>
                     <button class="prompt-chip" onclick="sendDemoChat('Bagaimana kalau anak ternyata tidak cocok dengan jurusan pilihan ortu?')">"Anak beda pendapat dengan ortu?"</button>
@@ -954,179 +906,171 @@
             </div>
 
             <div style="text-align:center; margin-top:2.5rem;">
-                <button class="btn-main btn-emerald" onclick="openQuizModal()">Ambil Tes Gratis, coba ngobrol</button>
+                <button class="btn-primary btn-emerald-solid" onclick="openQuizModal()">Ambil Tes Gratis, coba ngobrol</button>
             </div>
         </div>
     </section>
 
     <!-- Bab 04: WhatsApp Chat Evidence Carousel -->
-    <section class="section-light">
+    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);">
         <div class="container">
-            <div class="chapter-tag">
-                <em>Bab 04</em>
-                <div class="chapter-line"></div>
-                <span>Kisah Nyata Orang Tua</span>
-            </div>
-            <h2 class="heading-h2">
-                Bukti Chat WhatsApp: <span class="italic-emerald">Kisah Nyata Orang Tua &amp; Siswa</span>
+            <span class="chapter-pill">Bab 04 — Kisah Nyata Orang Tua</span>
+            <h2 class="section-title">
+                Bukti Chat WhatsApp: <span class="italic-emerald">Orang Tua &amp; Siswa Yang Terbantu</span>
             </h2>
 
-            <div class="carousel-stage">
-                <button class="nav-arrow left" id="btnPrevSlide" aria-label="Sebelumnya">
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow left" id="btnPrevSlide" aria-label="Sebelumnya">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
 
-                <div class="carousel-viewport" id="chatCarouselTrack">
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/3 digit.png')">
+                <div class="carousel-track-container" id="chatCarouselTrack">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/3 digit.png')">
                             <img src="BF resources/3 digit.png" alt="Testimoni WhatsApp 3 Digit" loading="lazy">
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/5.png')">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/5.png')">
                             <img src="BF resources/5.png" alt="Testimoni WhatsApp 5" loading="lazy">
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/6.png')">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/6.png')">
                             <img src="BF resources/6.png" alt="Testimoni WhatsApp 6" loading="lazy">
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/20 menit.png')">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/20 menit.png')">
                             <img src="BF resources/20 menit.png" alt="Testimoni WhatsApp 20 Menit" loading="lazy">
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/dr gigi.png')">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/dr gigi.png')">
                             <img src="BF resources/dr gigi.png" alt="Testimoni WhatsApp Dr Gigi" loading="lazy">
                         </div>
                     </div>
-                    <div class="carousel-card">
-                        <div class="img-container-frame" onclick="openFullLightbox('BF resources/peta.png')">
+                    <div class="carousel-slide-card">
+                        <div class="img-frame-box" onclick="openFullLightbox('BF resources/peta.png')">
                             <img src="BF resources/peta.png" alt="Testimoni WhatsApp Peta" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <button class="nav-arrow right" id="btnNextSlide" aria-label="Selanjutnya">
+                <button class="carousel-arrow right" id="btnNextSlide" aria-label="Selanjutnya">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
 
-                <div class="dot-pagination" id="chatCarouselDots"></div>
+                <div class="pagination-dots" id="chatCarouselDots"></div>
             </div>
         </div>
     </section>
 
-    <!-- Bab 05: Decoy Pricing Grid -->
-    <section class="section-light" id="harga" style="background:#f6f2ea;">
+    <!-- Bab 05: Decoy Pricing Grid (4 Tiers) -->
+    <section class="section-padding" id="harga" style="background:var(--bg-warm);">
         <div class="container">
-            <div class="chapter-tag">
-                <em>Bab 05</em>
-                <div class="chapter-line"></div>
-                <span>Investasi Spesial</span>
-            </div>
-            <h2 class="heading-h2">
+            <span class="chapter-pill">Bab 05 — Investasi Spesial Masa Depan</span>
+            <h2 class="section-title">
                 Satu Keputusan Kecil, <span class="italic-gold">Menyelamatkan Ratusan Juta.</span>
             </h2>
-            <p style="max-width:560px; color:var(--text-dark-muted);">
+            <p style="max-width:580px; color:var(--text-body);">
                 Bandingkan investasi ini dengan Rp 150 juta biaya salah jurusan — atau harga diri keluarga yang tak ternilai. Ini bukan biaya. Ini penyelamat.
             </p>
 
-            <div class="pricing-4grid">
+            <div class="pricing-4grid-container">
                 <!-- 1. Free Lead Magnet -->
-                <div class="price-box">
+                <div class="price-card-box">
                     <div>
-                        <h3 class="price-head">Basic Report</h3>
-                        <p style="font-size:0.8rem; color:var(--text-dark-muted);">Pemetaan Awal Gratis</p>
-                        <div class="price-tag">Gratis</div>
-                        <ul class="price-features-list">
+                        <h3 class="price-title-text">Basic Report</h3>
+                        <p style="font-size:0.8rem; color:var(--text-light);">Pemetaan Awal Gratis</p>
+                        <div class="price-num-tag">Gratis</div>
+                        <ul class="price-features-ul">
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Ringkasan 3 Dimensi Bakat</li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses Kuis Online</li>
                         </ul>
                     </div>
-                    <button class="btn-main" onclick="openQuizModal()" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--text-dark); box-shadow:none;">Coba Gratis</button>
+                    <button class="btn-primary" onclick="openQuizModal()" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--emerald-deep); box-shadow:none;">Coba Gratis</button>
                 </div>
 
                 <!-- 2. Advanced Report Tier -->
-                <div class="price-box">
+                <div class="price-card-box">
                     <div>
-                        <h3 class="price-head">Advanced Report</h3>
-                        <p style="font-size:0.8rem; color:var(--text-dark-muted);">Laporan Lengkap 19 Faktor</p>
-                        <div class="price-tag">Rp 80.000</div>
-                        <ul class="price-features-list">
+                        <h3 class="price-title-text">Advanced Report</h3>
+                        <p style="font-size:0.8rem; color:var(--text-light);">Laporan Lengkap 19 Faktor</p>
+                        <div class="price-num-tag">Rp 80.000</div>
+                        <ul class="price-features-ul">
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Analisa 19 Faktor Lengkap</li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Peta Jurusan Kuliah Anti-Gagal</li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Proyeksi Gaji Tujuan Karir</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20ambil%20Advanced%20Report%2080rb" class="btn-main" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--obsidian); box-shadow:none;">Pilih Advanced</a>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20ambil%20Advanced%20Report%2080rb" class="btn-primary" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--emerald-deep); box-shadow:none;">Pilih Advanced</a>
                 </div>
 
                 <!-- 3. AI Counselor Only (DECOY TIER CARD) -->
-                <div class="price-box decoy-tier">
+                <div class="price-card-box decoy-tier">
                     <div>
-                        <h3 class="price-head">AI Counselor Only</h3>
-                        <p style="font-size:0.8rem; color:var(--text-dark-muted);">Akses AI Konsultan Saja</p>
-                        <div class="price-tag">Rp 110.000</div>
-                        <ul class="price-features-list">
+                        <h3 class="price-title-text">AI Counselor Only</h3>
+                        <p style="font-size:0.8rem; color:var(--text-light);">Akses AI Konsultan Saja</p>
+                        <div class="price-num-tag">Rp 110.000</div>
+                        <ul class="price-features-ul">
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Akses AI Counselor 24/7</li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bebas Diskusi Kapan Pun</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20AI%20Counselor%20Only" class="btn-main" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--text-dark-muted); box-shadow:none;">Pilih AI Only</a>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20AI%20Counselor%20Only" class="btn-primary" style="width:100%; font-size:0.88rem; padding:0.8rem; background:var(--text-light); box-shadow:none;">Pilih AI Only</a>
                 </div>
 
-                <!-- 4. Advanced + AI Bundle (HERO BEST VALUE) -->
-                <div class="price-box target-hero">
-                    <span class="badge-target">Paling Laris (Hemat 70rb)</span>
+                <!-- 4. Advanced + AI Bundle (HERO TARGET OFFER) -->
+                <div class="price-card-box target-hero">
+                    <span class="hero-badge-pill">Paling Laris (Hemat 70rb)</span>
                     <div>
-                        <h3 class="price-head">Paket Lengkap + AI</h3>
-                        <p style="font-size:0.8rem; color:var(--text-dark-muted);">Laporan 19 Faktor + AI 24/7</p>
-                        <div class="price-tag">Rp 120.000 <span style="font-size:0.8rem; font-family:var(--font-sans); color:var(--crimson); font-weight:700;">(Cuma +10rb!)</span></div>
-                        <ul class="price-features-list">
+                        <h3 class="price-title-text">Paket Lengkap + AI</h3>
+                        <p style="font-size:0.8rem; color:var(--text-light);">Laporan 19 Faktor + AI 24/7</p>
+                        <div class="price-num-tag">Rp 120.000 <span style="font-size:0.8rem; font-family:var(--font-sans); color:var(--crimson-pain); font-weight:700;">(Cuma +10rb!)</span></div>
+                        <ul class="price-features-ul">
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Semua Fitur Advanced Report</strong></li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Akses Penuh AI Counselor 24/7</strong></li>
                             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Prioritas Konsultasi Psikolog</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-main" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
+                    <a href="https://wa.me/628123456789?text=Saya%20mau%20Paket%20Lengkap%20Bundle%20120rb" class="btn-primary" style="width:100%; font-size:0.9rem; padding:0.85rem;">Ambil Paket Best Value</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="section-light">
-        <div class="container" style="max-width:820px;">
-            <h2 class="heading-h2" style="text-align:center; margin-bottom:2.5rem;">Pertanyaan Sering Diajukan</h2>
+    <!-- FAQ Accordion -->
+    <section class="section-padding" style="background:#ffffff; border-top:1px solid var(--border-soft);">
+        <div class="container" style="max-width:800px;">
+            <h2 class="section-title" style="text-align:center; margin-bottom:2.5rem;">Pertanyaan Sering Diajukan</h2>
 
-            <div class="faq-card">
+            <div class="faq-item-card">
                 <button class="faq-header" onclick="toggleFaqAccordion(this)">
                     <span>Berapa lama tes minat bakat ini berlangsung?</span>
                     <span>+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-body">
                     Tes berlangsung online selama 15–20 menit melalui HP atau laptop. Hasil ringkasan dasar langsung dapat dilihat seketika.
                 </div>
             </div>
 
-            <div class="faq-card">
+            <div class="faq-item-card">
                 <button class="faq-header" onclick="toggleFaqAccordion(this)">
                     <span>Apakah alat ukur tes ini tepercaya?</span>
                     <span>+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-body">
                     Instrumen Better Future mengombinasikan 5 pisau psikologi teruji (RIASEC, MBTI, DISC, VAKS, &amp; 16PF) yang disupervisi oleh psikolog HIMPSI.
                 </div>
             </div>
 
-            <div class="faq-card">
+            <div class="faq-item-card">
                 <button class="faq-header" onclick="toggleFaqAccordion(this)">
                     <span>Bagaimana jika anak belum yakin dengan hasilnya?</span>
                     <span>+</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-body">
                     Anak dapat memanfaatkan AI Counselor 24/7 untuk melakukan eksplorasi mendalam tanpa rasa tertekan.
                 </div>
             </div>
@@ -1136,51 +1080,51 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p style="font-family:var(--font-serif); font-size:1.4rem; color:#fff; margin-bottom:0.5rem;">BetterFuture ISCA</p>
-            <p>© 2026 Better Future · Peta Bakat Ilmiah &amp; Masa Depan Anti-Salah Jurusan.</p>
+            <p style="font-family:var(--font-serif); font-size:1.5rem; color:#fff; margin-bottom:0.4rem;">BetterFuture ISCA</p>
+            <p>© 2026 Better Future · Pendampingan Bakat Ilmiah &amp; Masa Depan Anti-Salah Jurusan.</p>
         </div>
     </footer>
 
     <!-- Interactive Web Quiz Modal -->
-    <div id="quizModalBackdrop" class="modal-backdrop" onclick="closeQuizModal(event)">
-        <div class="quiz-card-modal" onclick="event.stopPropagation()">
-            <span class="modal-close-btn" onclick="closeQuizModal()">&times;</span>
+    <div id="quizModalOverlay" class="modal-overlay" onclick="closeQuizModal(event)">
+        <div class="quiz-modal-box" onclick="event.stopPropagation()">
+            <span class="close-modal-x" onclick="closeQuizModal()">&times;</span>
             
             <div id="quizStep1">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald); text-transform:uppercase; margin-bottom:0.5rem;">Langkah 1 dari 3</div>
-                <h3 class="serif" style="font-size:1.8rem; margin-bottom:0.5rem;">Apa tingkat pendidikan anak Anda saat ini?</h3>
-                <p style="font-size:0.88rem; color:var(--text-dark-muted); margin-bottom:1.5rem;">Pilih untuk menyesuaikan instrumen kuis minat bakat.</p>
-                <button class="quiz-option-btn" onclick="nextQuizStep(2)">Kelas 10–12 SMA / SMK</button>
-                <button class="quiz-option-btn" onclick="nextQuizStep(2)">Kelas 7–9 SMP</button>
-                <button class="quiz-option-btn" onclick="nextQuizStep(2)">Mahasiswa (Tingkat Awal)</button>
+                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah 1 dari 3</div>
+                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Apa tingkat pendidikan anak Anda saat ini?</h3>
+                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Pilih untuk menyesuaikan instrumen kuis minat bakat.</p>
+                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Kelas 10–12 SMA / SMK</button>
+                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Kelas 7–9 SMP</button>
+                <button class="quiz-step-btn" onclick="nextQuizStep(2)">Mahasiswa (Tingkat Awal)</button>
             </div>
 
             <div id="quizStep2" style="display:none;">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald); text-transform:uppercase; margin-bottom:0.5rem;">Langkah 2 dari 3</div>
-                <h3 class="serif" style="font-size:1.8rem; margin-bottom:0.5rem;">Apa kekhawatiran terbesar Anda?</h3>
-                <p style="font-size:0.88rem; color:var(--text-dark-muted); margin-bottom:1.5rem;">Pilih yang paling menggambarkan situasi keluarga.</p>
-                <button class="quiz-option-btn" onclick="nextQuizStep(3)">Anak bingung menentukan jurusan kuliah</button>
-                <button class="quiz-option-btn" onclick="nextQuizStep(3)">Orang tua &amp; anak berbeda pendapat pilihan jurusan</button>
-                <button class="quiz-option-btn" onclick="nextQuizStep(3)">Takut anak salah jurusan &amp; putus sekolah</button>
+                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah 2 dari 3</div>
+                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Apa kekhawatiran terbesar Anda?</h3>
+                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Pilih yang paling menggambarkan situasi keluarga.</p>
+                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Anak bingung menentukan jurusan kuliah</button>
+                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Orang tua &amp; anak berbeda pendapat pilihan jurusan</button>
+                <button class="quiz-step-btn" onclick="nextQuizStep(3)">Takut anak salah jurusan &amp; putus sekolah</button>
             </div>
 
             <div id="quizStep3" style="display:none;">
-                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald); text-transform:uppercase; margin-bottom:0.5rem;">Langkah Terakhir</div>
-                <h3 class="serif" style="font-size:1.8rem; margin-bottom:0.5rem;">Mulai Tes Gratis Sekarang!</h3>
-                <p style="font-size:0.88rem; color:var(--text-dark-muted); margin-bottom:1.5rem;">Hasil pemetaan awal akan dikirimkan langsung ke WhatsApp Anda.</p>
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20sudah%20mengisi%20kuis%20web%20dan%20ingin%20mulai%20tes%20gratis" class="btn-main" style="width:100%; border-radius:0.85rem;">Buka Kuis via WhatsApp</a>
+                <div style="font-size:0.75rem; font-weight:700; color:var(--emerald-mid); text-transform:uppercase; margin-bottom:0.4rem;">Langkah Terakhir</div>
+                <h3 class="serif" style="font-size:1.75rem; color:var(--emerald-deep); margin-bottom:0.4rem;">Mulai Tes Gratis Sekarang!</h3>
+                <p style="font-size:0.88rem; color:var(--text-body); margin-bottom:1.5rem;">Hasil pemetaan awal akan dikirimkan langsung ke WhatsApp Anda.</p>
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20sudah%20mengisi%20kuis%20web%20dan%20ingin%20mulai%20tes%20gratis" class="btn-primary" style="width:100%; border-radius:0.85rem;">Buka Kuis via WhatsApp</a>
             </div>
         </div>
     </div>
 
-    <!-- Lightbox Zoom -->
-    <div id="lightboxView" class="lightbox-view" onclick="closeFullLightbox()">
-        <img id="lightboxViewImg" src="" alt="Full Screenshot">
+    <!-- Lightbox Zoom Modal -->
+    <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeFullLightbox()">
+        <img id="lightboxImg" src="" alt="Full Screenshot">
     </div>
 
     <!-- JavaScript Scripts -->
     <script>
-        // Trait Simulator Interactive Mapping
+        // Trait Simulator Data & Polygon Animation
         const simDataMap = {
             social: {
                 points: "170,80 225,110 220,170 170,205 115,165 120,110",
@@ -1227,10 +1171,10 @@
 
                 document.getElementById('simPolygon').setAttribute('points', data.points);
                 document.getElementById('simCareerContent').innerHTML = data.list.map(item => `
-                    <div class="career-row">
-                        <div class="career-title">${item.title}</div>
-                        <span class="salary-tag">${item.salary}</span>
-                        <div class="career-desc">${item.desc}</div>
+                    <div class="career-item-row">
+                        <div class="career-title-text">${item.title}</div>
+                        <span class="career-salary-line">${item.salary}</span>
+                        <div class="career-desc-text">${item.desc}</div>
                     </div>
                 `).join('');
             });
@@ -1242,13 +1186,13 @@
             if (!chatArea) return;
 
             const uBubble = document.createElement('div');
-            uBubble.className = 'chat-bubble chat-bubble-user';
+            uBubble.className = 'chat-bubble bubble-parent';
             uBubble.innerText = msgText;
             chatArea.appendChild(uBubble);
 
             setTimeout(() => {
                 const aiBubble = document.createElement('div');
-                aiBubble.className = 'chat-bubble chat-bubble-ai';
+                aiBubble.className = 'chat-bubble bubble-ai';
                 aiBubble.innerText = 'AI Counselor siap mendampingi diskusi ini 24/7 berdasarkan data 19-Faktor Student Map anak Ibu.';
                 chatArea.appendChild(aiBubble);
                 chatArea.scrollTop = chatArea.scrollHeight;
@@ -1265,7 +1209,7 @@
             const slides = Array.from(trackEl.children);
             slides.forEach((_, idx) => {
                 const dot = document.createElement('div');
-                dot.className = 'dot-item' + (idx === 0 ? ' active' : '');
+                dot.className = 'pagination-dot' + (idx === 0 ? ' active' : '');
                 dot.addEventListener('click', () => {
                     const w = slides[0].offsetWidth + 24;
                     trackEl.scrollTo({ left: w * idx, behavior: 'smooth' });
@@ -1286,11 +1230,11 @@
 
         // Web Quiz Modal Controls
         function openQuizModal() {
-            const m = document.getElementById('quizModalBackdrop');
+            const m = document.getElementById('quizModalOverlay');
             if (m) m.classList.add('active');
         }
         function closeQuizModal(e) {
-            const m = document.getElementById('quizModalBackdrop');
+            const m = document.getElementById('quizModalOverlay');
             if (m) m.classList.remove('active');
         }
         function nextQuizStep(stepNum) {
@@ -1304,15 +1248,15 @@
 
         // Lightbox Image Zoom
         function openFullLightbox(src) {
-            const lb = document.getElementById('lightboxView');
-            const img = document.getElementById('lightboxViewImg');
+            const lb = document.getElementById('lightboxOverlay');
+            const img = document.getElementById('lightboxImg');
             if (lb && img) {
                 img.src = src;
                 lb.classList.add('active');
             }
         }
         function closeFullLightbox() {
-            const lb = document.getElementById('lightboxView');
+            const lb = document.getElementById('lightboxOverlay');
             if (lb) lb.classList.remove('active');
         }
 
@@ -1320,7 +1264,7 @@
         function toggleFaqAccordion(btn) {
             const ans = btn.nextElementSibling;
             const isOpen = ans.classList.contains('open');
-            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-body').forEach(a => a.classList.remove('open'));
             if (!isOpen) ans.classList.add('open');
         }
     </script>
