@@ -27,7 +27,7 @@
             --ink:      #1A1A1A;
             --inkMid:   #3D3D3D;
             --inkSoft:  #6B6B6B;
-            --inkLight: #9B9B9B;
+            --inkLight: #6E6E6E;
             --border:   #E8E4DC;
             --borderM:  #D4CFC5;
             --serif:    'Cormorant Garamond', 'Georgia', serif;
@@ -48,6 +48,11 @@
             overflow-x: hidden;
         }
         a { color: inherit; text-decoration: none; }
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
         img { display: block; max-width: 100%; }
 
         /* ============================================================
@@ -138,7 +143,8 @@
             color: #fff;
             font-size: 0.8rem;
             font-weight: 500;
-            padding: 0.5rem 1.25rem;
+            padding: 0.65rem 1.25rem;
+            min-height: 44px;
             border-radius: 100px;
             display: inline-flex;
             align-items: center;
@@ -232,7 +238,7 @@
             font-style: italic;
             font-size: clamp(2.2rem, 3.8vw, 3.5rem);
             font-weight: 500;
-            line-height: 1.08;
+            line-height: 1.18;
             color: #F2C0C0;
         }
         .hero-sub {
@@ -1569,6 +1575,16 @@
         }
         @media (prefers-reduced-motion: reduce) {
             .badge-hero { animation: none; }
+            .marquee-track,
+            .ticker-track {
+                animation: none !important;
+                transform: none !important;
+            }
+            .fade-up {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
             .price-card {
                 transition: opacity 0.2s ease, border-color 0.2s;
                 transform: none !important;
@@ -1625,7 +1641,7 @@
             color: var(--teal);
         }
 
-        /* Buttons for pricing cards */
+        /* Buttons for pricing cards (48px min-height for touch compliance) */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -1635,7 +1651,8 @@
             font-family: var(--sans);
             font-size: 0.9rem;
             font-weight: 600;
-            padding: 0.8rem 1.5rem;
+            padding: 0.85rem 1.5rem;
+            min-height: 48px;
             border-radius: 100px;
             border: 1.5px solid var(--teal);
             cursor: pointer;
@@ -1661,6 +1678,7 @@
             color: #FFFFFF;
             font-weight: 700;
             font-size: 0.95rem !important;
+            min-height: 48px;
         }
         /* ============================================================
            LEBARAN COUNTDOWN & TRANSPARENT RUNNING TEXT TICKER
@@ -2718,7 +2736,7 @@
      JS: FAQ + SCROLL ANIMATION
      ============================================================ -->
 <script>
-    // FAQ accordion
+    // Accessible FAQ accordion with ARIA state management
     function toggleFaq(btn) {
         const body    = btn.nextElementSibling;
         const chevron = btn.querySelector('.faq-chevron');
@@ -2727,10 +2745,12 @@
         // Close all
         document.querySelectorAll('.faq-body').forEach(b  => b.classList.remove('open'));
         document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
 
         if (!isOpen) {
             body.classList.add('open');
             chevron.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
         }
     }
 
