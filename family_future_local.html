@@ -177,61 +177,51 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 80% 25%;
+            /* Focus on hijab-wearing mother's facial expression on left of frame */
+            object-position: 18% 25%;
             filter: brightness(0.72) saturate(0.95);
             transition: object-position 0.3s ease;
         }
         @media (min-width: 1024px) {
             .hero-bg video {
-                object-position: 75% center;
+                object-position: 25% center;
             }
         }
-        /* Gradient overlay — dual-direction for maximum legibility & subject clarity */
+        /* Gradient overlay for 100% text legibility without rigid card box */
         .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 1;
             background: 
-                linear-gradient(to right, rgba(15,10,5,0.82) 0%, rgba(15,10,5,0.38) 55%, rgba(15,10,5,0.05) 100%),
-                linear-gradient(to top, rgba(15,10,5,0.88) 0%, rgba(15,10,5,0.15) 50%, rgba(15,10,5,0.25) 100%);
+                linear-gradient(to right, rgba(15,10,5,0.78) 0%, rgba(15,10,5,0.45) 50%, rgba(15,10,5,0.15) 100%),
+                linear-gradient(to top, rgba(15,10,5,0.85) 0%, rgba(15,10,5,0.2) 60%, rgba(15,10,5,0.3) 100%);
         }
-        /* Mobile Frosted Glass Docked Card */
+        /* Pure, Clean Text Content (No Bento Card Box) */
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: left;
             color: #fff;
-            width: calc(100% - 1.5rem);
-            max-width: 550px;
-            margin: auto 0.75rem 1rem 0.75rem;
-            padding: 1.35rem 1.25rem;
-            border-radius: 16px;
-            background: rgba(15, 10, 5, 0.68);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 16px 36px rgba(0,0,0,0.35);
+            padding: 2rem 1.5rem 1.75rem;
+            max-width: 540px;
+            width: 100%;
+            margin-top: auto;
+            margin-bottom: auto;
+            background: transparent;
+            border: none;
+            box-shadow: none;
         }
         @media (min-width: 768px) {
             .hero-content {
-                width: 100%;
-                margin: auto 0 auto 1.5rem;
-                padding: 2.5rem 2.25rem;
-                background: rgba(15, 10, 5, 0.45);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
+                padding: 3rem 2.5rem;
+                margin-left: 1.5rem;
             }
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .hero-content {
-                margin: auto 0 auto 3rem;
-                padding: 3rem 2.5rem;
-                background: transparent;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                border: none;
-                box-shadow: none;
+                padding: 3rem 3rem;
+                margin-left: 3rem;
             }
         }
         /* Integrated Urgency Badge */
