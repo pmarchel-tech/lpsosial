@@ -162,7 +162,7 @@
             min-height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
             overflow: hidden;
             padding-top: 60px;
         }
@@ -177,50 +177,50 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Focus on hijab-wearing mother's facial expression on left of frame */
-            object-position: 18% 25%;
+            /* Focus on center of video */
+            object-position: center center;
             filter: brightness(0.72) saturate(0.95);
             transition: object-position 0.3s ease;
         }
         @media (min-width: 1024px) {
             .hero-bg video {
-                object-position: 25% center;
+                object-position: center center;
             }
         }
-        /* Gradient overlay for 100% text legibility without rigid card box */
+        /* Gradient overlay — weighted at bottom-left for maximum legibility */
         .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 1;
             background: 
-                linear-gradient(to right, rgba(15,10,5,0.78) 0%, rgba(15,10,5,0.45) 50%, rgba(15,10,5,0.15) 100%),
-                linear-gradient(to top, rgba(15,10,5,0.85) 0%, rgba(15,10,5,0.2) 60%, rgba(15,10,5,0.3) 100%);
+                linear-gradient(to right, rgba(15,10,5,0.85) 0%, rgba(15,10,5,0.45) 55%, rgba(15,10,5,0.1) 100%),
+                linear-gradient(to top, rgba(15,10,5,0.92) 0%, rgba(15,10,5,0.3) 50%, rgba(15,10,5,0.15) 100%);
         }
-        /* Pure, Clean Text Content (No Bento Card Box) */
+        /* Text Content — Docked at Bottom-Left */
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: left;
             color: #fff;
-            padding: 2rem 1.5rem 1.75rem;
-            max-width: 540px;
+            padding: 1.5rem 1.25rem 1rem;
+            max-width: 520px;
             width: 100%;
             margin-top: auto;
-            margin-bottom: auto;
+            margin-bottom: 0;
             background: transparent;
             border: none;
             box-shadow: none;
         }
         @media (min-width: 768px) {
             .hero-content {
-                padding: 3rem 2.5rem;
+                padding: 2rem 2.25rem 1.5rem;
                 margin-left: 1.5rem;
             }
         }
         @media (min-width: 1280px) {
             .hero-content {
-                padding: 3rem 3rem;
+                padding: 2.5rem 2.5rem 2rem;
                 margin-left: 3rem;
             }
         }
