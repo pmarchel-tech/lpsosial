@@ -161,8 +161,7 @@
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
+            justify-content: space-between;
             overflow: hidden;
             padding-top: 60px;
         }
@@ -195,23 +194,53 @@
             z-index: 2;
             text-align: left;
             color: #fff;
-            padding: 3rem 1.75rem 2.75rem;
-            max-width: 520px;
+            padding: 2.25rem 1.75rem 2rem;
+            max-width: 550px;
             width: 100%;
-            margin-left: 0;
+            margin-top: auto;
+            margin-bottom: auto;
         }
         @media (min-width: 768px) {
             .hero-content {
-                padding: 3.5rem 2.5rem 3.5rem;
+                padding: 3rem 2.5rem;
                 margin-left: 1.5rem;
             }
         }
         @media (min-width: 1280px) {
             .hero-content {
-                padding: 3.5rem 3rem 3.5rem;
+                padding: 3rem 3rem;
                 margin-left: 3rem;
             }
         }
+        /* Integrated Urgency Badge */
+        .hero-urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 26, 45, 0.55);
+            border: 1px solid rgba(242, 192, 192, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #FF5252;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #FF5252;
+            animation: blinkDot 1.4s ease-in-out infinite;
+        }
+        .urgency-time { font-weight: 700; color: #F2C0C0; }
+        .badge-sep { opacity: 0.5; }
+        .eyebrow-text { opacity: 0.9; font-weight: 500; }
         .hero-eyebrow {
             font-size: 0.6rem;
             letter-spacing: 0.18em;
@@ -1769,18 +1798,19 @@
             margin: 0 1px;
         }
 
-        /* Transparent Running Text Marquee — Strict Left Aligned */
-        .marquee-container {
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            background: transparent;
-            padding: 0.35rem 0;
-            margin-top: 0.25rem;
+        /* Full-width Ticker Strip at Hero Base */
+        .hero-bottom-ticker {
             position: relative;
-            mask-image: linear-gradient(to right, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+            z-index: 2;
+            width: 100%;
+            background: rgba(15, 10, 5, 0.72);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.65rem 0;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
         .marquee-track {
             display: inline-flex;
@@ -1854,7 +1884,13 @@
         </video>
     </div>
     <div class="hero-content">
-        <p class="hero-eyebrow">Tekanan Sosial di Kumpul Keluarga</p>
+        <!-- Integrated Urgency Badge -->
+        <div class="hero-urgency-badge">
+            <span class="pulse-dot"></span>
+            <span class="urgency-time"><strong id="cd-days">188</strong> HARI LAGI KE LEBARAN</span>
+            <span class="badge-sep">•</span>
+            <span class="eyebrow-text">TEKANAN SOSIAL KELUARGA</span>
+        </div>
         <h1 class="hero-h1">
             <span class="hero-intro">Lebaran nanti, takut ada yang nanya:</span>
             <span class="italic-crimson">"Anak kamu putus kuliah ya?"</span>
@@ -1868,82 +1904,33 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
         </div>
-        <p style="font-size:0.72rem; opacity:0.88; margin:-0.25rem 0 0.85rem 0; display:flex; align-items:center; gap:0.35rem; color:rgba(255,255,255,0.92); font-weight:400;">
+        <p style="font-size:0.72rem; opacity:0.88; margin:-0.25rem 0 0; display:flex; align-items:center; gap:0.35rem; color:rgba(255,255,255,0.92); font-weight:400;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             <span>Tanpa Kartu Kredit · Hasil Tes Dikirim Langsung via WhatsApp</span>
         </p>
-        <!-- LEBARAN COUNTDOWN TIMER (Diatas Running Text) -->
-        <div class="lebaran-countdown-box">
-            <div class="lebaran-label">
-                <span class="lebaran-label-dot"></span>
-                Ketemu Keluarga di momen lebaran dalam :
-            </div>
-            <div class="timer-grid">
-                <div class="timer-unit">
-                    <div class="timer-num" id="cd-days">00</div>
-                    <div class="timer-lbl">HARI</div>
-                </div>
-                <span class="timer-sep">:</span>
-                <div class="timer-unit">
-                    <div class="timer-num" id="cd-hours">00</div>
-                    <div class="timer-lbl">JAM</div>
-                </div>
-                <span class="timer-sep">:</span>
-                <div class="timer-unit">
-                    <div class="timer-num" id="cd-mins">00</div>
-                    <div class="timer-lbl">MENIT</div>
-                </div>
-                <span class="timer-sep">:</span>
-                <div class="timer-unit">
-                    <div class="timer-num" id="cd-secs">00</div>
-                    <div class="timer-lbl">DETIK</div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <!-- TRANSPARENT RUNNING TEXT MARQUEE (Ditambah Fitur Paket 120rb) -->
-        <div class="marquee-container">
-            <div class="marquee-track">
-                <!-- Track Items (Set 1) -->
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 2.400+ KELUARGA INDONESIA</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SUPERVISI PSIKOLOG HIMPSI</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> RATING 4.9/5</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> ASESMEN BAKAT 19-FAKTOR &amp; RADAR</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> LAPORAN PDF 19 HALAMAN LENGKAP</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> DRAF PANDUAN DIPLOMASI ORTU-ANAK</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> AKSES AI COUNSELOR 24/7</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> PETA JURUSAN KULIAH ANTI-GAGAL</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg> VOUCHER KONSULTASI 1-ON-1 DR. TEGUH</span>
-                <span class="marquee-dot-sep"></span>
+    <!-- Full-Width Bottom Social Proof Ticker Bar -->
+    <div class="hero-bottom-ticker">
+        <div class="marquee-track">
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 2.400+ KELUARGA INDONESIA</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SUPERVISI PSIKOLOG HIMPSI</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> RATING 4.9/5 SATISFACTION</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> ASESMEN BAKAT 19-FAKTOR</span>
+            <span class="marquee-dot-sep"></span>
 
-                <!-- Track Items (Set 2 for infinite smooth loop) -->
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 2.400+ KELUARGA INDONESIA</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SUPERVISI PSIKOLOG HIMPSI</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> RATING 4.9/5</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> ASESMEN BAKAT 19-FAKTOR &amp; RADAR</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> LAPORAN PDF 19 HALAMAN LENGKAP</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> DRAF PANDUAN DIPLOMASI ORTU-ANAK</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> AKSES AI COUNSELOR 24/7</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> PETA JURUSAN KULIAH ANTI-GAGAL</span>
-                <span class="marquee-dot-sep"></span>
-                <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg> VOUCHER KONSULTASI 1-ON-1 DR. TEGUH</span>
-                <span class="marquee-dot-sep"></span>
-            </div>
+            <!-- Duplicate set for infinite smooth loop -->
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 2.400+ KELUARGA INDONESIA</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> SUPERVISI PSIKOLOG HIMPSI</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> RATING 4.9/5 SATISFACTION</span>
+            <span class="marquee-dot-sep"></span>
+            <span class="marquee-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> ASESMEN BAKAT 19-FAKTOR</span>
+            <span class="marquee-dot-sep"></span>
         </div>
     </div>
 </section>
@@ -2764,13 +2751,10 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Lebaran Countdown Timer (Hari, Jam, Menit, Detik)
+    // Lebaran Countdown Timer (Compact Urgency Badge)
     function initLebaranCountdown() {
         const dEl = document.getElementById("cd-days");
-        const hEl = document.getElementById("cd-hours");
-        const mEl = document.getElementById("cd-mins");
-        const sEl = document.getElementById("cd-secs");
-        if (!dEl || !hEl || !mEl || !sEl) return;
+        if (!dEl) return;
 
         // Target Date: Hari Raya Idul Fitri 2027 (1 Syawal 1448 H - 10 Maret 2027)
         let target = new Date("March 10, 2027 00:00:00").getTime();
@@ -2780,26 +2764,16 @@
             const diff = target - current;
 
             if (diff <= 0) {
-                dEl.textContent = "00";
-                hEl.textContent = "00";
-                mEl.textContent = "00";
-                sEl.textContent = "00";
+                dEl.textContent = "0";
                 return;
             }
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-            dEl.textContent = String(days).padStart(2, '0');
-            hEl.textContent = String(hours).padStart(2, '0');
-            mEl.textContent = String(mins).padStart(2, '0');
-            sEl.textContent = String(secs).padStart(2, '0');
+            dEl.textContent = days;
         }
 
         updateTimer();
-        setInterval(updateTimer, 1000);
+        setInterval(updateTimer, 60000); // update every minute
     }
     initLebaranCountdown();
 
